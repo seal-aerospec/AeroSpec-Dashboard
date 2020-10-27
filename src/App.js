@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+/* src/App.js */
+import React, { useEffect, useState } from 'react'
+import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import { getAeroSpec } from './graphql/queries'
+import {listAeroSpecs} from './graphql/queries'
 
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
+const initialState = { id: '', deviceName: '' }
+
+const App = () => {
+  const [formState, setFormState] = useState(initialState)
+
+  async function displayDevice() {
+    try {
+      const store = await API.graphql({ query: getAeroSpec, variables: {id: '123lol'} });
+      const info = store.data.getAeroSpec;
+      const newS = {id: info.id, deviceName: info.deviceName};
+      setFormState(newS);
+      console.log(formState);
+    }catch (err) {
+      console.log('error: ', err);
+    }
+  }
+
+
+  return (
+      <div>
+        <button onClick={displayDevice}>Data</button>
+        <p>{formState.id}    {formState.deviceName}</p>
+      </div>
+  )
+}
 export default App;

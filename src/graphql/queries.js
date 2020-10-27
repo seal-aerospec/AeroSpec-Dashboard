@@ -6,12 +6,10 @@ export const getAeroSpec = /* GraphQL */ `
     getAeroSpec(id: $id) {
       id
       deviceName
-      temperature
-      createdAt
-      updatedAt
     }
   }
 `;
+
 export const listAeroSpecs = /* GraphQL */ `
   query ListAeroSpecs(
     $filter: ModelAeroSpecFilterInput
