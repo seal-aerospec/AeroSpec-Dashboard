@@ -1,0 +1,5 @@
+type AeroSpec @model {
+    id: ID!
+    deviceName: String!
+    temperature: Int!
+}

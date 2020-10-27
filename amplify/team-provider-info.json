@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aerospecdashboard-dev-180438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-aerospecdashboard-dev-180438-deployment",
+      "UnauthRoleName": "amplify-aerospecdashboard-dev-180438-unauthRole",
+      "StackName": "amplify-aerospecdashboard-dev-180438",
+      "StackId": "arn:aws:cloudformation:us-west-2:790784664340:stack/amplify-aerospecdashboard-dev-180438/47164fa0-1727-11eb-b469-0276f619b229",
+      "AmplifyAppId": "d1yvtoba4ru0uj"
+    }
+  }
+}

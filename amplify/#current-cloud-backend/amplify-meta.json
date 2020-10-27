@@ -1,0 +1,42 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aerospecdashboard-dev-180438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-aerospecdashboard-dev-180438-deployment",
+      "UnauthRoleName": "amplify-aerospecdashboard-dev-180438-unauthRole",
+      "StackName": "amplify-aerospecdashboard-dev-180438",
+      "StackId": "arn:aws:cloudformation:us-west-2:790784664340:stack/amplify-aerospecdashboard-dev-180438/47164fa0-1727-11eb-b469-0276f619b229",
+      "AmplifyAppId": "d1yvtoba4ru0uj"
+    }
+  },
+  "api": {
+    "aerospecdashboard": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": ""
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "nbur23x4hfevfbbkgnzkp33f5y",
+        "GraphQLAPIEndpointOutput": "https://tgb4hemi4rbxfaymuyfexgjvgm.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-yis2rgyt6fblhg2s6bjix3waiq"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aerospecdashboard-dev-180438-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiaerospecdashboard"
+      },
+      "lastPushTimeStamp": "2020-10-26T01:22:27.828Z",
+      "lastPushDirHash": "ETDWtGckW1kBRk3GKNHOH6y4HCk="
+    }
+  }
+}
