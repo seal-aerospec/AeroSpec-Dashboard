@@ -4,8 +4,7 @@ import './dashboard2.css';
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getAeroSpec } from '../graphql/queries'
-import { listAeroSpecs } from '../graphql/queries'
+import { getDeviceDataTest } from '../graphql/queries'
 
 /* frontend-imports */
 import { Button, Container, Row, Col, Card, Tab, Tabs } from 'react-bootstrap';
@@ -16,18 +15,20 @@ import Slider from './assets/Slider.js';
 
 
 
-const initialState = { id: '', deviceName: '' }
+const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 
 const Dashboard = () => {
   const [formState, setFormState] = useState(initialState)
 
   async function displayDevice() {
     try {
-      const store = await API.graphql({ query: getAeroSpec, variables: {id: '123lol'} });
-      const info = store.data.getAeroSpec;
-      const newS = {id: info.id, deviceName: info.deviceName};
-      setFormState(newS);
-      console.log(formState);
+      const store = await API.graphql({ query: getDeviceDataTest, variables: {id: '02f9bde0-197d-11eb-8848-d19ed1c9f7eb'} });
+      const info = store.data.getDeviceDataTest;
+      const payload = JSON.parse(info.payload);
+      const newData = {id: info.id, time: payload['time'], sensor: 'a'+payload['sensor_a0'], timestamp: info.timestamp};
+      setFormState(newData);
+      console.log(newData);
+      console.log(payload);
     }catch (err) {
       console.log('error: ', err);
     }
@@ -80,9 +81,11 @@ const Dashboard = () => {
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" />
             <Card.Body>
-              <Card.Title>{formState.id}</Card.Title>
+              <Card.Title>id: {formState.id}</Card.Title>
               <Card.Text>
-                {formState.deviceName}
+                <div>time: {formState.time}</div>
+                <div>sensor: {formState.sensor}</div>
+                <div>timestamp: {formState.timestamp}</div>
               </Card.Text>
               <Button variant="primary">Delete</Button>
             </Card.Body>

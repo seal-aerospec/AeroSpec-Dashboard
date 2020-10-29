@@ -7,8 +7,6 @@ export const getDeviceDataTest = /* GraphQL */ `
       id
       payload
       timestamp
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -23,8 +21,6 @@ export const listDeviceDataTests = /* GraphQL */ `
         id
         payload
         timestamp
-        createdAt
-        updatedAt
       }
       nextToken
     }
