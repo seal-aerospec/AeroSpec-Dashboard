@@ -86,7 +86,7 @@
         }
     },
     "Resources": {
-        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable": {
+        "DeviceDataTestTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "TableName": {
@@ -96,7 +96,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                    "DeviceDataTest",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     },
@@ -110,7 +110,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                    "DeviceDataTest",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     }
@@ -182,7 +182,7 @@
             },
             "DeletionPolicy": "Delete"
         },
-        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole": {
+        "DeviceDataTestIAMRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {
@@ -192,7 +192,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Serverlessrepo4db984",
+                                    "DeviceDataTest900caa",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -207,7 +207,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "ServerlessrepoLambdaIotR8f6c3c",
+                                    "DeviceDataTest22b56f",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -259,7 +259,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                                                        "DeviceDataTest",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -273,7 +273,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                                                        "DeviceDataTest",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -296,7 +296,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                                                        "DeviceDataTest",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -310,7 +310,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                                                        "DeviceDataTest",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -330,17 +330,17 @@
                 ]
             }
         },
-        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource": {
+        "DeviceDataTestDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
                     "Ref": "GetAttGraphQLAPIApiId"
                 },
-                "Name": "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
+                "Name": "DeviceDataTestTable",
                 "Type": "AMAZON_DYNAMODB",
                 "ServiceRoleArn": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole",
+                        "DeviceDataTestIAMRole",
                         "Arn"
                     ]
                 },
@@ -355,7 +355,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "DeviceDataTest",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         },
@@ -369,7 +369,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "DeviceDataTest",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         }
@@ -381,10 +381,10 @@
                 }
             },
             "DependsOn": [
-                "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole"
+                "DeviceDataTestIAMRole"
             ]
         },
-        "GetServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
+        "GetDeviceDataTestResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -392,11 +392,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                        "DeviceDataTestDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                "FieldName": "getDeviceDataTest",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -413,7 +413,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "getDeviceDataTest",
                                         "req",
                                         "vtl"
                                     ]
@@ -437,7 +437,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "getDeviceDataTest",
                                         "res",
                                         "vtl"
                                     ]
@@ -448,7 +448,7 @@
                 }
             }
         },
-        "ListServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
+        "ListDeviceDataTestResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -456,11 +456,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                        "DeviceDataTestDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
+                "FieldName": "listDeviceDataTests",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -477,7 +477,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
+                                        "listDeviceDataTests",
                                         "req",
                                         "vtl"
                                     ]
@@ -501,7 +501,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
+                                        "listDeviceDataTests",
                                         "res",
                                         "vtl"
                                     ]
@@ -512,7 +512,7 @@
                 }
             }
         },
-        "CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
+        "CreateDeviceDataTestResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -520,11 +520,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                        "DeviceDataTestDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                "FieldName": "createDeviceDataTest",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -541,7 +541,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "createDeviceDataTest",
                                         "req",
                                         "vtl"
                                     ]
@@ -565,7 +565,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "createDeviceDataTest",
                                         "res",
                                         "vtl"
                                     ]
@@ -576,7 +576,7 @@
                 }
             }
         },
-        "UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
+        "UpdateDeviceDataTestResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -584,11 +584,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                        "DeviceDataTestDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                "FieldName": "updateDeviceDataTest",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -605,7 +605,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "updateDeviceDataTest",
                                         "req",
                                         "vtl"
                                     ]
@@ -629,7 +629,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "updateDeviceDataTest",
                                         "res",
                                         "vtl"
                                     ]
@@ -640,7 +640,7 @@
                 }
             }
         },
-        "DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
+        "DeleteDeviceDataTestResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -648,11 +648,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                        "DeviceDataTestDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                "FieldName": "deleteDeviceDataTest",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -669,7 +669,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "deleteDeviceDataTest",
                                         "req",
                                         "vtl"
                                     ]
@@ -693,7 +693,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
+                                        "deleteDeviceDataTest",
                                         "res",
                                         "vtl"
                                     ]
@@ -706,11 +706,11 @@
         }
     },
     "Outputs": {
-        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTableStreamArn": {
+        "GetAttDeviceDataTestTableStreamArn": {
             "Description": "Your DynamoDB table StreamArn.",
             "Value": {
                 "Fn::GetAtt": [
-                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
+                    "DeviceDataTestTable",
                     "StreamArn"
                 ]
             },
@@ -723,18 +723,18 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
+                            "DeviceDataTestTable",
                             "StreamArn"
                         ]
                     ]
                 }
             }
         },
-        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSourceName": {
+        "GetAttDeviceDataTestDataSourceName": {
             "Description": "Your model DataSource name.",
             "Value": {
                 "Fn::GetAtt": [
-                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                    "DeviceDataTestDataSource",
                     "Name"
                 ]
             },
@@ -747,17 +747,17 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
+                            "DeviceDataTestDataSource",
                             "Name"
                         ]
                     ]
                 }
             }
         },
-        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTableName": {
+        "GetAttDeviceDataTestTableName": {
             "Description": "Your DynamoDB table name.",
             "Value": {
-                "Ref": "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable"
+                "Ref": "DeviceDataTestTable"
             },
             "Export": {
                 "Name": {
@@ -768,7 +768,7 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
+                            "DeviceDataTestTable",
                             "Name"
                         ]
                     ]

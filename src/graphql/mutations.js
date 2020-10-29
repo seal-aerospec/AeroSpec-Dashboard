@@ -1,15 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc = /* GraphQL */ `
-  mutation CreateServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc(
-    $input: CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!
-    $condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput
+export const createDeviceDataTest = /* GraphQL */ `
+  mutation CreateDeviceDataTest(
+    $input: CreateDeviceDataTestInput!
+    $condition: ModelDeviceDataTestConditionInput
   ) {
-    createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(
-      input: $input
-      condition: $condition
-    ) {
+    createDeviceDataTest(input: $input, condition: $condition) {
       id
       payload
       timestamp
@@ -18,15 +15,12 @@ export const createServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc = /* GraphQL 
     }
   }
 `;
-export const updateServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc = /* GraphQL */ `
-  mutation UpdateServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc(
-    $input: UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!
-    $condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput
+export const updateDeviceDataTest = /* GraphQL */ `
+  mutation UpdateDeviceDataTest(
+    $input: UpdateDeviceDataTestInput!
+    $condition: ModelDeviceDataTestConditionInput
   ) {
-    updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(
-      input: $input
-      condition: $condition
-    ) {
+    updateDeviceDataTest(input: $input, condition: $condition) {
       id
       payload
       timestamp
@@ -35,15 +29,12 @@ export const updateServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc = /* GraphQL 
     }
   }
 `;
-export const deleteServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc = /* GraphQL */ `
-  mutation DeleteServerlessrepoLambdaIotRuleMyTable1S5Lw3Qy2Broc(
-    $input: DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!
-    $condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput
+export const deleteDeviceDataTest = /* GraphQL */ `
+  mutation DeleteDeviceDataTest(
+    $input: DeleteDeviceDataTestInput!
+    $condition: ModelDeviceDataTestConditionInput
   ) {
-    deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(
-      input: $input
-      condition: $condition
-    ) {
+    deleteDeviceDataTest(input: $input, condition: $condition) {
       id
       payload
       timestamp

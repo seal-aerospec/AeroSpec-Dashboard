@@ -1,4 +1,4 @@
-type ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @model {
+type DeviceDataTest @model {
 	id: String!
 	payload: String!
 	timestamp: String!
