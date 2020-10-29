@@ -1,4 +1,4 @@
-type ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC {
+type DeviceDataTest {
   id: String!
   payload: String!
   timestamp: String!
@@ -11,8 +11,8 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConnection {
-  items: [ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC]
+type ModelDeviceDataTestConnection {
+  items: [DeviceDataTest]
   nextToken: String
 }
 
@@ -89,13 +89,13 @@ input ModelSizeInput {
   between: [Int]
 }
 
-input ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput {
+input ModelDeviceDataTestFilterInput {
   id: ModelStringInput
   payload: ModelStringInput
   timestamp: ModelStringInput
-  and: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput]
-  or: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput]
-  not: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput
+  and: [ModelDeviceDataTestFilterInput]
+  or: [ModelDeviceDataTestFilterInput]
+  not: ModelDeviceDataTestFilterInput
 }
 
 enum ModelAttributeTypes {
@@ -112,42 +112,42 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(id: ID!): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
-  listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs(filter: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput, limit: Int, nextToken: String): ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConnection
+  getDeviceDataTest(id: ID!): DeviceDataTest
+  listDeviceDataTests(filter: ModelDeviceDataTestFilterInput, limit: Int, nextToken: String): ModelDeviceDataTestConnection
 }
 
-input CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
+input CreateDeviceDataTestInput {
   id: String!
   payload: String!
   timestamp: String!
 }
 
-input UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
+input UpdateDeviceDataTestInput {
   id: String!
   payload: String
   timestamp: String
 }
 
-input DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
+input DeleteDeviceDataTestInput {
   id: ID
 }
 
 type Mutation {
-  createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
-  updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
-  deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
+  createDeviceDataTest(input: CreateDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
+  updateDeviceDataTest(input: UpdateDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
+  deleteDeviceDataTest(input: DeleteDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
 }
 
-input ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput {
+input ModelDeviceDataTestConditionInput {
   payload: ModelStringInput
   timestamp: ModelStringInput
-  and: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput]
-  or: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput]
-  not: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput
+  and: [ModelDeviceDataTestConditionInput]
+  or: [ModelDeviceDataTestConditionInput]
+  not: ModelDeviceDataTestConditionInput
 }
 
 type Subscription {
-  onCreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
-  onUpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
-  onDeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
+  onCreateDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["createDeviceDataTest"])
+  onUpdateDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["updateDeviceDataTest"])
+  onDeleteDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["deleteDeviceDataTest"])
 }

@@ -120,7 +120,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1635474405
+                        1635476689
                     ]
                 }
             },
@@ -150,7 +150,7 @@
                 }
             }
         },
-        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC": {
+        "DeviceDataTest": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -215,7 +215,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC.json"
+                            "DeviceDataTest.json"
                         ]
                     ]
                 }
@@ -267,7 +267,7 @@
             "DependsOn": [
                 "GraphQLAPI",
                 "GraphQLSchema",
-                "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"
+                "DeviceDataTest"
             ]
         }
     },
