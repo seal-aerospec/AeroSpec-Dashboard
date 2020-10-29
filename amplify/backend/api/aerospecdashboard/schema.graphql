@@ -1,5 +1,5 @@
-type AeroSpec @model {
-    id: ID!
-    deviceName: String!
-    temperature: Int!
+type ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @model {
+	id: String!
+	payload: String!
+	timestamp: String!
 }

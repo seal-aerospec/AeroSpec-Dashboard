@@ -120,7 +120,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1635211200
+                        1635474405
                     ]
                 }
             },
@@ -150,7 +150,7 @@
                 }
             }
         },
-        "AeroSpec": {
+        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -215,7 +215,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "AeroSpec.json"
+                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC.json"
                         ]
                     ]
                 }
@@ -267,7 +267,7 @@
             "DependsOn": [
                 "GraphQLAPI",
                 "GraphQLSchema",
-                "AeroSpec"
+                "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"
             ]
         }
     },

@@ -1,7 +1,7 @@
-type AeroSpec {
-  id: ID!
-  deviceName: String!
-  temperature: Int!
+type ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC {
+  id: String!
+  payload: String!
+  timestamp: String!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -11,8 +11,8 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelAeroSpecConnection {
-  items: [AeroSpec]
+type ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConnection {
+  items: [ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC]
   nextToken: String
 }
 
@@ -89,13 +89,13 @@ input ModelSizeInput {
   between: [Int]
 }
 
-input ModelAeroSpecFilterInput {
-  id: ModelIDInput
-  deviceName: ModelStringInput
-  temperature: ModelIntInput
-  and: [ModelAeroSpecFilterInput]
-  or: [ModelAeroSpecFilterInput]
-  not: ModelAeroSpecFilterInput
+input ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput {
+  id: ModelStringInput
+  payload: ModelStringInput
+  timestamp: ModelStringInput
+  and: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput]
+  or: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput]
+  not: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput
 }
 
 enum ModelAttributeTypes {
@@ -112,42 +112,42 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  getAeroSpec(id: ID!): AeroSpec
-  listAeroSpecs(filter: ModelAeroSpecFilterInput, limit: Int, nextToken: String): ModelAeroSpecConnection
+  getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(id: ID!): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
+  listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs(filter: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCFilterInput, limit: Int, nextToken: String): ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConnection
 }
 
-input CreateAeroSpecInput {
-  id: ID
-  deviceName: String!
-  temperature: Int!
+input CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
+  id: String!
+  payload: String!
+  timestamp: String!
 }
 
-input UpdateAeroSpecInput {
-  id: ID!
-  deviceName: String
-  temperature: Int
+input UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
+  id: String!
+  payload: String
+  timestamp: String
 }
 
-input DeleteAeroSpecInput {
+input DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput {
   id: ID
 }
 
 type Mutation {
-  createAeroSpec(input: CreateAeroSpecInput!, condition: ModelAeroSpecConditionInput): AeroSpec
-  updateAeroSpec(input: UpdateAeroSpecInput!, condition: ModelAeroSpecConditionInput): AeroSpec
-  deleteAeroSpec(input: DeleteAeroSpecInput!, condition: ModelAeroSpecConditionInput): AeroSpec
+  createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
+  updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
+  deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC(input: DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCInput!, condition: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput): ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC
 }
 
-input ModelAeroSpecConditionInput {
-  deviceName: ModelStringInput
-  temperature: ModelIntInput
-  and: [ModelAeroSpecConditionInput]
-  or: [ModelAeroSpecConditionInput]
-  not: ModelAeroSpecConditionInput
+input ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput {
+  payload: ModelStringInput
+  timestamp: ModelStringInput
+  and: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput]
+  or: [ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput]
+  not: ModelServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCConditionInput
 }
 
 type Subscription {
-  onCreateAeroSpec: AeroSpec @aws_subscribe(mutations: ["createAeroSpec"])
-  onUpdateAeroSpec: AeroSpec @aws_subscribe(mutations: ["updateAeroSpec"])
-  onDeleteAeroSpec: AeroSpec @aws_subscribe(mutations: ["deleteAeroSpec"])
+  onCreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
+  onUpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
+  onDeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC: ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC @aws_subscribe(mutations: ["deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC"])
 }
