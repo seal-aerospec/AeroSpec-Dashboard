@@ -86,7 +86,7 @@
         }
     },
     "Resources": {
-        "AeroSpecTable": {
+        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "TableName": {
@@ -96,7 +96,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "AeroSpec",
+                                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     },
@@ -110,7 +110,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "AeroSpec",
+                                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     }
@@ -182,7 +182,7 @@
             },
             "DeletionPolicy": "Delete"
         },
-        "AeroSpecIAMRole": {
+        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {
@@ -192,7 +192,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "AeroSpecc7149e",
+                                    "Serverlessrepo4db984",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -207,7 +207,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "AeroSpec31b592",
+                                    "ServerlessrepoLambdaIotR8f6c3c",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -259,7 +259,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "AeroSpec",
+                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -273,7 +273,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "AeroSpec",
+                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -296,7 +296,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "AeroSpec",
+                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -310,7 +310,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "AeroSpec",
+                                                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -330,17 +330,17 @@
                 ]
             }
         },
-        "AeroSpecDataSource": {
+        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
                     "Ref": "GetAttGraphQLAPIApiId"
                 },
-                "Name": "AeroSpecTable",
+                "Name": "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
                 "Type": "AMAZON_DYNAMODB",
                 "ServiceRoleArn": {
                     "Fn::GetAtt": [
-                        "AeroSpecIAMRole",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole",
                         "Arn"
                     ]
                 },
@@ -355,7 +355,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "AeroSpec",
+                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         },
@@ -369,7 +369,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "AeroSpec",
+                                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         }
@@ -381,10 +381,10 @@
                 }
             },
             "DependsOn": [
-                "AeroSpecIAMRole"
+                "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCIAMRole"
             ]
         },
-        "GetAeroSpecResolver": {
+        "GetServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -392,11 +392,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "AeroSpecDataSource",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getAeroSpec",
+                "FieldName": "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -413,7 +413,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getAeroSpec",
+                                        "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "req",
                                         "vtl"
                                     ]
@@ -437,7 +437,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getAeroSpec",
+                                        "getServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "res",
                                         "vtl"
                                     ]
@@ -448,7 +448,7 @@
                 }
             }
         },
-        "ListAeroSpecResolver": {
+        "ListServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -456,11 +456,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "AeroSpecDataSource",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "listAeroSpecs",
+                "FieldName": "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -477,7 +477,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listAeroSpecs",
+                                        "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
                                         "req",
                                         "vtl"
                                     ]
@@ -501,7 +501,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listAeroSpecs",
+                                        "listServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCs",
                                         "res",
                                         "vtl"
                                     ]
@@ -512,7 +512,7 @@
                 }
             }
         },
-        "CreateAeroSpecResolver": {
+        "CreateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -520,11 +520,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "AeroSpecDataSource",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "createAeroSpec",
+                "FieldName": "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -541,7 +541,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createAeroSpec",
+                                        "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "req",
                                         "vtl"
                                     ]
@@ -565,7 +565,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createAeroSpec",
+                                        "createServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "res",
                                         "vtl"
                                     ]
@@ -576,7 +576,7 @@
                 }
             }
         },
-        "UpdateAeroSpecResolver": {
+        "UpdateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -584,11 +584,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "AeroSpecDataSource",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "updateAeroSpec",
+                "FieldName": "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -605,7 +605,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateAeroSpec",
+                                        "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "req",
                                         "vtl"
                                     ]
@@ -629,7 +629,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateAeroSpec",
+                                        "updateServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "res",
                                         "vtl"
                                     ]
@@ -640,7 +640,7 @@
                 }
             }
         },
-        "DeleteAeroSpecResolver": {
+        "DeleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -648,11 +648,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "AeroSpecDataSource",
+                        "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "deleteAeroSpec",
+                "FieldName": "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -669,7 +669,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteAeroSpec",
+                                        "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "req",
                                         "vtl"
                                     ]
@@ -693,7 +693,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteAeroSpec",
+                                        "deleteServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROC",
                                         "res",
                                         "vtl"
                                     ]
@@ -706,11 +706,11 @@
         }
     },
     "Outputs": {
-        "GetAttAeroSpecTableStreamArn": {
+        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTableStreamArn": {
             "Description": "Your DynamoDB table StreamArn.",
             "Value": {
                 "Fn::GetAtt": [
-                    "AeroSpecTable",
+                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
                     "StreamArn"
                 ]
             },
@@ -723,18 +723,18 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "AeroSpecTable",
+                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
                             "StreamArn"
                         ]
                     ]
                 }
             }
         },
-        "GetAttAeroSpecDataSourceName": {
+        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSourceName": {
             "Description": "Your model DataSource name.",
             "Value": {
                 "Fn::GetAtt": [
-                    "AeroSpecDataSource",
+                    "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                     "Name"
                 ]
             },
@@ -747,17 +747,17 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "AeroSpecDataSource",
+                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCDataSource",
                             "Name"
                         ]
                     ]
                 }
             }
         },
-        "GetAttAeroSpecTableName": {
+        "GetAttServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTableName": {
             "Description": "Your DynamoDB table name.",
             "Value": {
-                "Ref": "AeroSpecTable"
+                "Ref": "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable"
             },
             "Export": {
                 "Name": {
@@ -768,7 +768,7 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "AeroSpecTable",
+                            "ServerlessrepoLambdaIotRuleMyTable1S5LW3QY2BROCTable",
                             "Name"
                         ]
                     ]
