@@ -1,5 +1,8 @@
-type DeviceDataTest @model {
-	id: String!
-	payload: String!
+type Test123 @model {
+	sensor_id: String!
 	timestamp: String!
+	CarbonDioxide: String!
+	Nitrogen: String!
+	Oxygen: String!
+	temperature: String!
 }
