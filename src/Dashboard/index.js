@@ -39,7 +39,8 @@ const Dashboard = () => {
       const store = await API.graphql({ query: getMockDeviceDataTest, variables: {sensor_id: '18', timestamp: '1606880248914'} });
       const info = store.data.getMockDeviceDataTest;
       console.log(info);
-      const newData = {sensor_id: info.sensor_id, timestamp: info.timestamp, latitude: info.latitude, device_time: info.device_time, longitude: info.longitude};
+      const newData = {sensor_id: info.sensor_id, timestamp: info.timestamp, Dp: info.Dp_greater_point3, latitude: info.latitude, device_time: info.device_time, longitude: info.longitude};
+      console.log(newData);
       setFormState(newData);
     }catch (err) {
       console.log('error: ', err);
@@ -140,6 +141,7 @@ const Dashboard = () => {
               <Card.Title>sensor id: {formState.sensor_id}</Card.Title>
               <Card.Text>
                 <div>timestamp: {formState.timestamp}</div>
+                <div>Dp: {formState.Dp}</div>
                 <div>latitude: {formState.latitude}</div>
                 <div>device time: {formState.device_time}</div>
                 <div>longitude: {formState.longitude}</div>

@@ -9,6 +9,7 @@ export const createMockDeviceDataTest = /* GraphQL */ `
     createMockDeviceDataTest(input: $input, condition: $condition) {
       sensor_id
       timestamp
+      Dp_greater_point3
       latitude
       device_time
       longitude
@@ -23,6 +24,7 @@ export const updateMockDeviceDataTest = /* GraphQL */ `
     updateMockDeviceDataTest(input: $input, condition: $condition) {
       sensor_id
       timestamp
+      Dp_greater_point3
       latitude
       device_time
       longitude
@@ -37,6 +39,7 @@ export const deleteMockDeviceDataTest = /* GraphQL */ `
     deleteMockDeviceDataTest(input: $input, condition: $condition) {
       sensor_id
       timestamp
+      Dp_greater_point3
       latitude
       device_time
       longitude
