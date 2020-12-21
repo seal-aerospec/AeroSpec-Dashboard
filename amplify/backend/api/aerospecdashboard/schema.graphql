@@ -1,4 +1,4 @@
-type Test123 @model {
+type MockDeviceDataTest @model {
 	sensor_id: String!
 	timestamp: String!
 	CarbonDioxide: String!
