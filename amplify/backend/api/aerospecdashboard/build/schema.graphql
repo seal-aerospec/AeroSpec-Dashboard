@@ -1,7 +1,11 @@
-type DeviceDataTest {
-  id: String!
-  payload: String!
+type MockDeviceDataTest {
+  id: ID!
+  sensor_id: String!
   timestamp: String!
+  CarbonDioxide: String!
+  Nitrogen: String!
+  Oxygen: String!
+  temperature: String!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -11,8 +15,8 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelDeviceDataTestConnection {
-  items: [DeviceDataTest]
+type ModelMockDeviceDataTestConnection {
+  items: [MockDeviceDataTest]
   nextToken: String
 }
 
@@ -89,13 +93,16 @@ input ModelSizeInput {
   between: [Int]
 }
 
-input ModelDeviceDataTestFilterInput {
-  id: ModelStringInput
-  payload: ModelStringInput
+input ModelMockDeviceDataTestFilterInput {
+  sensor_id: ModelStringInput
   timestamp: ModelStringInput
-  and: [ModelDeviceDataTestFilterInput]
-  or: [ModelDeviceDataTestFilterInput]
-  not: ModelDeviceDataTestFilterInput
+  CarbonDioxide: ModelStringInput
+  Nitrogen: ModelStringInput
+  Oxygen: ModelStringInput
+  temperature: ModelStringInput
+  and: [ModelMockDeviceDataTestFilterInput]
+  or: [ModelMockDeviceDataTestFilterInput]
+  not: ModelMockDeviceDataTestFilterInput
 }
 
 enum ModelAttributeTypes {
@@ -112,42 +119,53 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  getDeviceDataTest(id: ID!): DeviceDataTest
-  listDeviceDataTests(filter: ModelDeviceDataTestFilterInput, limit: Int, nextToken: String): ModelDeviceDataTestConnection
+  getMockDeviceDataTest(id: ID!): MockDeviceDataTest
+  listMockDeviceDataTests(filter: ModelMockDeviceDataTestFilterInput, limit: Int, nextToken: String): ModelMockDeviceDataTestConnection
 }
 
-input CreateDeviceDataTestInput {
-  id: String!
-  payload: String!
+input CreateMockDeviceDataTestInput {
+  id: ID
+  sensor_id: String!
   timestamp: String!
+  CarbonDioxide: String!
+  Nitrogen: String!
+  Oxygen: String!
+  temperature: String!
 }
 
-input UpdateDeviceDataTestInput {
-  id: String!
-  payload: String
+input UpdateMockDeviceDataTestInput {
+  sensor_id: String
   timestamp: String
+  CarbonDioxide: String
+  Nitrogen: String
+  Oxygen: String
+  temperature: String
 }
 
-input DeleteDeviceDataTestInput {
+input DeleteMockDeviceDataTestInput {
   id: ID
 }
 
 type Mutation {
-  createDeviceDataTest(input: CreateDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
-  updateDeviceDataTest(input: UpdateDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
-  deleteDeviceDataTest(input: DeleteDeviceDataTestInput!, condition: ModelDeviceDataTestConditionInput): DeviceDataTest
+  createMockDeviceDataTest(input: CreateMockDeviceDataTestInput!, condition: ModelMockDeviceDataTestConditionInput): MockDeviceDataTest
+  updateMockDeviceDataTest(input: UpdateMockDeviceDataTestInput!, condition: ModelMockDeviceDataTestConditionInput): MockDeviceDataTest
+  deleteMockDeviceDataTest(input: DeleteMockDeviceDataTestInput!, condition: ModelMockDeviceDataTestConditionInput): MockDeviceDataTest
 }
 
-input ModelDeviceDataTestConditionInput {
-  payload: ModelStringInput
+input ModelMockDeviceDataTestConditionInput {
+  sensor_id: ModelStringInput
   timestamp: ModelStringInput
-  and: [ModelDeviceDataTestConditionInput]
-  or: [ModelDeviceDataTestConditionInput]
-  not: ModelDeviceDataTestConditionInput
+  CarbonDioxide: ModelStringInput
+  Nitrogen: ModelStringInput
+  Oxygen: ModelStringInput
+  temperature: ModelStringInput
+  and: [ModelMockDeviceDataTestConditionInput]
+  or: [ModelMockDeviceDataTestConditionInput]
+  not: ModelMockDeviceDataTestConditionInput
 }
 
 type Subscription {
-  onCreateDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["createDeviceDataTest"])
-  onUpdateDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["updateDeviceDataTest"])
-  onDeleteDeviceDataTest: DeviceDataTest @aws_subscribe(mutations: ["deleteDeviceDataTest"])
+  onCreateMockDeviceDataTest: MockDeviceDataTest @aws_subscribe(mutations: ["createMockDeviceDataTest"])
+  onUpdateMockDeviceDataTest: MockDeviceDataTest @aws_subscribe(mutations: ["updateMockDeviceDataTest"])
+  onDeleteMockDeviceDataTest: MockDeviceDataTest @aws_subscribe(mutations: ["deleteMockDeviceDataTest"])
 }

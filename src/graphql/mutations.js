@@ -1,45 +1,45 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createDeviceDataTest = /* GraphQL */ `
-  mutation CreateDeviceDataTest(
-    $input: CreateDeviceDataTestInput!
-    $condition: ModelDeviceDataTestConditionInput
+export const createMockDeviceDataTest = /* GraphQL */ `
+  mutation CreateMockDeviceDataTest(
+    $input: CreateMockDeviceDataTestInput!
+    $condition: ModelMockDeviceDataTestConditionInput
   ) {
-    createDeviceDataTest(input: $input, condition: $condition) {
-      id
-      payload
+    createMockDeviceDataTest(input: $input, condition: $condition) {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;
-export const updateDeviceDataTest = /* GraphQL */ `
-  mutation UpdateDeviceDataTest(
-    $input: UpdateDeviceDataTestInput!
-    $condition: ModelDeviceDataTestConditionInput
+export const updateMockDeviceDataTest = /* GraphQL */ `
+  mutation UpdateMockDeviceDataTest(
+    $input: UpdateMockDeviceDataTestInput!
+    $condition: ModelMockDeviceDataTestConditionInput
   ) {
-    updateDeviceDataTest(input: $input, condition: $condition) {
-      id
-      payload
+    updateMockDeviceDataTest(input: $input, condition: $condition) {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;
-export const deleteDeviceDataTest = /* GraphQL */ `
-  mutation DeleteDeviceDataTest(
-    $input: DeleteDeviceDataTestInput!
-    $condition: ModelDeviceDataTestConditionInput
+export const deleteMockDeviceDataTest = /* GraphQL */ `
+  mutation DeleteMockDeviceDataTest(
+    $input: DeleteMockDeviceDataTestInput!
+    $condition: ModelMockDeviceDataTestConditionInput
   ) {
-    deleteDeviceDataTest(input: $input, condition: $condition) {
-      id
-      payload
+    deleteMockDeviceDataTest(input: $input, condition: $condition) {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;

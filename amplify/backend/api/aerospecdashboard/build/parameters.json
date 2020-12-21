@@ -4,5 +4,5 @@
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": false,
     "S3DeploymentBucket": "amplify-aerospecdashboard-dev-180438-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/f7b7ddc2e912b70ad1c0767218eb530606f76fe6"
+    "S3DeploymentRootKey": "amplify-appsync-files/65daf21cdee74464336bf1e82f59cd1dffa1f722"
 }

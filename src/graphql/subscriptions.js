@@ -1,36 +1,36 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateDeviceDataTest = /* GraphQL */ `
-  subscription OnCreateDeviceDataTest {
-    onCreateDeviceDataTest {
-      id
-      payload
+export const onCreateMockDeviceDataTest = /* GraphQL */ `
+  subscription OnCreateMockDeviceDataTest {
+    onCreateMockDeviceDataTest {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;
-export const onUpdateDeviceDataTest = /* GraphQL */ `
-  subscription OnUpdateDeviceDataTest {
-    onUpdateDeviceDataTest {
-      id
-      payload
+export const onUpdateMockDeviceDataTest = /* GraphQL */ `
+  subscription OnUpdateMockDeviceDataTest {
+    onUpdateMockDeviceDataTest {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;
-export const onDeleteDeviceDataTest = /* GraphQL */ `
-  subscription OnDeleteDeviceDataTest {
-    onDeleteDeviceDataTest {
-      id
-      payload
+export const onDeleteMockDeviceDataTest = /* GraphQL */ `
+  subscription OnDeleteMockDeviceDataTest {
+    onDeleteMockDeviceDataTest {
+      sensor_id
       timestamp
-      createdAt
-      updatedAt
+      latitude
+      device_time
+      longitude
     }
   }
 `;

@@ -1,26 +1,34 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getDeviceDataTest = /* GraphQL */ `
-  query GetDeviceDataTest($id: ID!) {
-    getDeviceDataTest(id: $id) {
-      id
-      payload
+export const getMockDeviceDataTest = /* GraphQL */ `
+  query GetMockDeviceDataTest($sensor_id: String!, $timestamp: String!) {
+    getMockDeviceDataTest(sensor_id: $sensor_id, timestamp: $timestamp) {
+      sensor_id
       timestamp
+      latitude
+      device_time
+      longitude
     }
   }
 `;
-export const listDeviceDataTests = /* GraphQL */ `
-  query ListDeviceDataTests(
-    $filter: ModelDeviceDataTestFilterInput
+export const listMockDeviceDataTests = /* GraphQL */ `
+  query ListMockDeviceDataTests(
+    $filter: ModelMockDeviceDataTestFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listDeviceDataTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMockDeviceDataTests(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
-        id
-        payload
+        sensor_id
         timestamp
+        latitude
+        device_time
+        longitude
       }
       nextToken
     }
