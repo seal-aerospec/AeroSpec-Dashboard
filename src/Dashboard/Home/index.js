@@ -4,35 +4,21 @@
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getMockDeviceDataTest } from '../graphql/queries'
+import { getMockDeviceDataTest } from '../../graphql/queries'
 
 /* frontend-imports */
 import { Button, Container, Row, Col, Card, Tab, Tabs } from 'react-bootstrap';
 import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { Form, FormControl} from 'react-bootstrap';
-import logo from './assets/favicon.svg';
-import Slider from './assets/Slider.js';
-import Suggestion from './assets/Suggestion.js'
+import logo from '../assets/favicon.svg';
+import Slider from '../assets/Slider.js';
 
-import Modal from '@material-ui/core/Modal';
-import { makeStyles } from '@material-ui/core/styles';
 
 
 const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 
 const Dashboard = () => {
   const [formState, setFormState] = useState(initialState)
-  const [modalOpen, setModalOpen] = React.useState(false);
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-
-  const handleOpen = () => {
-    setModalOpen(true);
-  };
-
-  const handleClose = () => {
-    setModalOpen(false);
-  };
 
   async function displayDevice() {
     try {
@@ -47,70 +33,9 @@ const Dashboard = () => {
     }
   }
 
-  const useStyles = makeStyles((theme) => ({
-    paper: {
-      position: 'absolute',
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
-  }));
-
-  const classes = useStyles();
-
-  const modalBody = (
-    <div style={modalStyle} className={classes.paper}>
-      <Suggestion />
-    </div>
-  );
-
-  function rand() {
-    return Math.round(Math.random() * 20) - 10;
-  }
-
-  function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
-
-    return {
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `translate(-${top}%, -${left}%)`,
-    };
-  }
-
   return (
     <Container fluid>
-      <Navbar bg="light">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-        <div >
-          <button type="button" onClick={handleOpen}>
-            Suggestions
-          </button>
-          <Modal
-            open={modalOpen}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            {modalBody}
-          </Modal>
-        </div>
-        </Navbar.Collapse>
-      </Navbar>
       <Row>
-        <Col xs={2}>
-          <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link eventKey="link-1">Alert</Nav.Link>
-            <Nav.Link eventKey="link-2">Blueprints and Device</Nav.Link>
-            <Nav.Link eventKey="link-3">Settings</Nav.Link>
-          </Nav>
-        </Col>
         <Col xs={6}>
         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
           <Tab eventKey="home" title="Nano">
