@@ -19,9 +19,6 @@ export const onUpdateMockDeviceDataTest = /* GraphQL */ `
       sensor_id
       timestamp
       Dp_greater_point3
-      latitude
-      device_time
-      longitude
     }
   }
 `;
@@ -31,9 +28,6 @@ export const onDeleteMockDeviceDataTest = /* GraphQL */ `
       sensor_id
       timestamp
       Dp_greater_point3
-      latitude
-      device_time
-      longitude
     }
   }
 `;
