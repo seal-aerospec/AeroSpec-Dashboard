@@ -6,9 +6,7 @@ export const getMockDeviceDataTest = /* GraphQL */ `
     getMockDeviceDataTest(sensor_id: $sensor_id, timestamp: $timestamp) {
       sensor_id
       timestamp
-      latitude
-      device_time
-      longitude
+      Dp_greater_point3
     }
   }
 `;
@@ -26,9 +24,7 @@ export const listMockDeviceDataTests = /* GraphQL */ `
       items {
         sensor_id
         timestamp
-        latitude
-        device_time
-        longitude
+        Dp_greater_point3
       }
       nextToken
     }

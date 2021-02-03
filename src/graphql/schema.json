@@ -129,7 +129,23 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "Dp_greater_point3",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "latitude",
+          "name" : "device_time",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -743,6 +759,7 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "Dp_greater_point3",
           "name" : "latitude",
           "description" : null,
           "type" : {
@@ -776,7 +793,46 @@
             "name" : null,
             "ofType" : {
               "kind" : "SCALAR",
-              "name" : "String",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "latitude",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "device_time",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "longitude",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
               "ofType" : null
             }
           },
@@ -1110,6 +1166,23 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
+        "kind" : "ENUM",
+        "name" : "ModelSortDirection",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "ASC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "DESC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
         "kind" : "SCALAR",
         "name" : "Float",
         "description" : "Built-in Float",
@@ -1214,7 +1287,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelIDInput",
+        "name" : "ModelFloatInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1222,7 +1295,7 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
-            "name" : "ID",
+            "name" : "Float",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1231,7 +1304,7 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
-            "name" : "ID",
+            "name" : "Float",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1240,7 +1313,7 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
-            "name" : "ID",
+            "name" : "Float",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1258,7 +1331,7 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
-            "name" : "ID",
+            "name" : "Float",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1267,6 +1340,7 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+            "name" : "Float",
             "name" : "ID",
             "ofType" : null
           },
@@ -1343,6 +1417,13 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
+        "kind" : "SCALAR",
+        "name" : "Float",
+        "description" : "Built-in Float",
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : null,
         "kind" : "ENUM",
         "name" : "ModelSortDirection",
         "description" : null,
@@ -2215,8 +2296,8 @@
         "description" : "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
         "locations" : [ "FIELD_DEFINITION" ],
         "args" : [ {
-          "name" : "subscriptions",
-          "description" : "List of subscriptions which will be published to when this mutation is called.",
+          "name" : "cognito_groups",
+          "description" : "List of cognito user pool groups which have access on this field",
           "type" : {
             "kind" : "LIST",
             "name" : null,
@@ -2232,6 +2313,12 @@
         "onFragment" : false,
         "onField" : false
       }, {
+        "name" : "aws_publish",
+        "description" : "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
+        "locations" : [ "FIELD_DEFINITION" ],
+        "args" : [ {
+          "name" : "subscriptions",
+          "description" : "List of subscriptions which will be published to when this mutation is called.",
         "name" : "aws_iam",
         "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -2261,6 +2348,16 @@
         "onFragment" : false,
         "onField" : false
       }, {
+        "name" : "aws_iam",
+        "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_auth",
+        "description" : "Directs the schema to enforce authorization on a field",
         "name" : "aws_subscribe",
         "description" : "Tells the service which mutation triggers this subscription.",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -2295,6 +2392,31 @@
           },
           "defaultValue" : "\"No longer supported\""
         } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_subscribe",
+        "description" : "Tells the service which mutation triggers this subscription.",
+        "locations" : [ "FIELD_DEFINITION" ],
+        "args" : [ {
+          "name" : "mutations",
+          "description" : "List of mutations which will trigger this subscription when they are called.",
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        } ],
+        "name" : "aws_api_key",
+        "description" : "Tells the service this field/object has access authorized by an API key.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false

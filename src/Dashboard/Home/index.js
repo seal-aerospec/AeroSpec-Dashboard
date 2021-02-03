@@ -1,17 +1,17 @@
-import './dashboard.css';
-import './dashboard2.css';
+// import './dashboard.css';
+// import './dashboard2.css';
 
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getDeviceDataTest } from '../graphql/queries'
+import { getMockDeviceDataTest } from '../../graphql/queries'
 
 /* frontend-imports */
 import { Button, Container, Row, Col, Card, Tab, Tabs } from 'react-bootstrap';
 import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { Form, FormControl} from 'react-bootstrap';
-import logo from './assets/favicon.svg';
-import Slider from './assets/Slider.js';
+import logo from '../assets/favicon.svg';
+import Slider from '../assets/Slider.js';
 
 
 
@@ -22,38 +22,20 @@ const Dashboard = () => {
 
   async function displayDevice() {
     try {
-      const store = await API.graphql({ query: getDeviceDataTest, variables: {id: '02f9bde0-197d-11eb-8848-d19ed1c9f7eb'} });
-      const info = store.data.getDeviceDataTest;
-      const payload = JSON.parse(info.payload);
-      const newData = {id: info.id, time: payload['time'], sensor: 'a'+payload['sensor_a0'], timestamp: info.timestamp};
-      setFormState(newData);
+      const store = await API.graphql({ query: getMockDeviceDataTest, variables: {sensor_id: '18', timestamp: '1606880248914'} });
+      const info = store.data.getMockDeviceDataTest;
+      console.log(info);
+      const newData = {sensor_id: info.sensor_id, timestamp: info.timestamp, Dp: info.Dp_greater_point3, latitude: info.latitude, device_time: info.device_time, longitude: info.longitude};
       console.log(newData);
-      console.log(payload);
-    } catch (err) {
+      setFormState(newData);
+    }catch (err) {
       console.log('error: ', err);
     }
   }
 
   return (
     <Container fluid>
-      <Navbar bg="light">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-        <Form inline>
-          <FormControl type="text" placeholder="Suggestions" className="mr-sm-2" />
-        </Form>
-        </Navbar.Collapse>
-      </Navbar>
       <Row>
-        <Col xs={2}>
-          <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link eventKey="link-1">Alert</Nav.Link>
-            <Nav.Link eventKey="link-2">Blueprints and Device</Nav.Link>
-            <Nav.Link eventKey="link-3">Settings</Nav.Link>
-          </Nav>
-        </Col>
         <Col xs={6}>
         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
           <Tab eventKey="home" title="Nano">
@@ -81,11 +63,13 @@ const Dashboard = () => {
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" />
             <Card.Body>
-              <Card.Title>id: {formState.id}</Card.Title>
+              <Card.Title>sensor id: {formState.sensor_id}</Card.Title>
               <Card.Text>
-                <div>time: {formState.time}</div>
-                <div>sensor: {formState.sensor}</div>
                 <div>timestamp: {formState.timestamp}</div>
+                <div>Dp: {formState.Dp}</div>
+                <div>latitude: {formState.latitude}</div>
+                <div>device time: {formState.device_time}</div>
+                <div>longitude: {formState.longitude}</div>
               </Card.Text>
               <Button variant="primary">Delete</Button>
             </Card.Body>

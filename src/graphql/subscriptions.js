@@ -6,6 +6,7 @@ export const onCreateMockDeviceDataTest = /* GraphQL */ `
     onCreateMockDeviceDataTest {
       sensor_id
       timestamp
+      Dp_greater_point3
       latitude
       device_time
       longitude
@@ -17,9 +18,7 @@ export const onUpdateMockDeviceDataTest = /* GraphQL */ `
     onUpdateMockDeviceDataTest {
       sensor_id
       timestamp
-      latitude
-      device_time
-      longitude
+      Dp_greater_point3
     }
   }
 `;
@@ -28,9 +27,7 @@ export const onDeleteMockDeviceDataTest = /* GraphQL */ `
     onDeleteMockDeviceDataTest {
       sensor_id
       timestamp
-      latitude
-      device_time
-      longitude
+      Dp_greater_point3
     }
   }
 `;

@@ -1,114 +1,114 @@
 import './App.css';
+import {Route, BrowserRouter as Router, Link} from "react-router-dom"
 
 /* src/App.js */
-import React, { useEffect, useState } from 'react'
-import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getAeroSpec } from './graphql/queries'
-import {listAeroSpecs} from './graphql/queries'
-import Dashboard from './Dashboard'
+import React from 'react'
+import Amplify from 'aws-amplify'
+import Home from './Dashboard/Home'
+import Blueprints from './Dashboard/BlueprintsAndDevices'
+
+import Alerts from './Dashboard/Alerts'
+import Settings from './Dashboard/Settings'
+
+import { Navbar, Nav} from 'react-bootstrap';
+
+import { Container, Row, Col} from 'react-bootstrap';
+import Suggestion from './Dashboard/assets/Suggestion.js'
+
+import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
-const initialState = { id: '', deviceName: '' }
-
 const App = () => {
-//  const [formState, setFormState] = useState(initialState)
-//
-//  async function displayDevice() {
-//    try {
-//      const store = await API.graphql({ query: getAeroSpec, variables: {id: '123lol'} });
-//      const info = store.data.getAeroSpec;
-//      const newS = {id: info.id, deviceName: info.deviceName};
-//      setFormState(newS);
-//      console.log(formState);
-//    }catch (err) {
-//      console.log('error: ', err);
-//    }
-//  }
-//
-//  return (
-//    <div class="container-fluid">
-//  <div class="row">
-//    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-//      <div class="sidebar-sticky pt-3">
-//        <ul class="nav flex-column">
-//          <li class="nav-item">
-//            <a class="nav-link active" href="#">
-//              <span data-feather="home"></span>
-//              Home <span class="sr-only">(current)</span>
-//            </a>
-//          </li>
-//          <li class="nav-item">
-//            <a class="nav-link" href="#">
-//              <span data-feather="file"></span>
-//              Alerts
-//            </a>
-//          </li>
-//          <li class="nav-item">
-//            <a class="nav-link" href="#">
-//              <span data-feather="shopping-cart"></span>
-//              Blueprints And Devices
-//            </a>
-//          </li>
-//          <li class="nav-item">
-//            <a class="nav-link" href="#">
-//              <span data-feather="users"></span>
-//              Settings
-//            </a>
-//          </li>
-//        </ul>
-//      </div>
-//    </nav>
-//    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-//      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-//        <h1 class="h2">Dashboard</h1>
-//        <div class="btn-toolbar mb-2 mb-md-0">
-//          <div class="btn-group mr-2">
-//            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-//            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-//          </div>
-//          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-//            <span data-feather="calendar"></span>
-//            This week
-//          </button>
-//        </div>
-//      </div>
-//
-//      <div>
-//        <button onClick={displayDevice}>Data</button>
-//        <p>{formState.id}    {formState.deviceName}</p>
-//      </div>
-//
-//      <h2>Section title</h2>
-//      <div class="table-responsive">
-//        <table class="table table-striped table-sm">
-//          <thead>
-//            <tr>
-//              <th>#</th>
-//              <th>Header</th>
-//              <th>Header</th>
-//              <th>Header</th>
-//              <th>Header</th>
-//            </tr>
-//          </thead>
-//          <tbody>
-//            <tr>
-//              <td>Placeholder</td>
-//              <td>Placeholder</td>
-//              <td>Placeholder</td>
-//              <td>Placeholder</td>
-//              <td>Placeholder</td>
-//            </tr>
-//          </tbody>
-//        </table>
-//      </div>
-//    </main>
-//  </div>
-//</div>
-//  )
+    const [modalOpen, setModalOpen] = React.useState(false);
+    // getModalStyle is not a pure function, we roll the style only on the first render
+    const [modalStyle] = React.useState(getModalStyle);
+
+    const handleOpen = () => {
+        setModalOpen(true);
+    };
+
+    const handleClose = () => {
+        setModalOpen(false);
+    };
+
+    const useStyles = makeStyles((theme) => ({
+        paper: {
+          position: 'absolute',
+          width: 400,
+          backgroundColor: theme.palette.background.paper,
+          border: '2px solid #000',
+          boxShadow: theme.shadows[5],
+          padding: theme.spacing(2, 4, 3),
+        },
+      }));
+
+      const classes = useStyles();
+
+      const modalBody = (
+        <div style={modalStyle} className={classes.paper}>
+          <Suggestion />
+        </div>
+      );
+
+      function rand() {
+        return Math.round(Math.random() * 20) - 10;
+      }
+
+      function getModalStyle() {
+        const top = 50 + rand();
+        const left = 50 + rand();
+
+        return {
+          top: `${top}%`,
+          left: `${left}%`,
+          transform: `translate(-${top}%, -${left}%)`,
+        };
+      }
+
     return (
-    <Dashboard />
+    // <Dashboard />
+    <Router>
+        <Container fluid>
+            <Navbar bg="light">
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                <div >
+                <button type="button" onClick={handleOpen}>
+                    Suggestions
+                </button>
+                <Modal
+                    open={modalOpen}
+                    onClose={handleClose}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                >
+                    {modalBody}
+                </Modal>
+                </div>
+                </Navbar.Collapse>
+            </Navbar>
+            <Row>
+                <Col xs={2}>
+                    <Nav defaultActiveKey="/home" className="flex-column">
+                        <Nav.Link><Link to="/">Home</Link></Nav.Link>
+                        <Nav.Link><Link to="/alerts">Alerts</Link></Nav.Link>
+                        <Nav.Link><Link to="/blueprints-and-devices">Blueprints and Device</Link></Nav.Link>
+                        <Nav.Link><Link to="/settings">Settings</Link></Nav.Link>
+                    </Nav>
+                </Col>
+                <Col xs={10}>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/alerts" component={Alerts}/>
+                    <Route path="/settings" component={Settings}/>
+                    <Route path="/blueprints-and-devices" component={Blueprints}/>
+                </Col>
+            </Row>
+        </Container>
+    </Router>
     );
 }
 export default App;
