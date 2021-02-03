@@ -36,7 +36,7 @@ const Dashboard = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col>
         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
           <Tab eventKey="home" title="Nano">
             <p>Nano</p>
@@ -49,33 +49,6 @@ const Dashboard = () => {
             <p>Temprature</p>
           </Tab>
         </Tabs>
-        </Col>
-        <Col xs={4}>
-          <Row>
-            <Col>
-            <p>My Devices</p>
-            </Col>
-            <Col>
-            <Button onClick={displayDevice}>Add</Button>
-            </Col>
-          </Row>
-          <Row>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" />
-            <Card.Body>
-              <Card.Title>sensor id: {formState.sensor_id}</Card.Title>
-              <Card.Text>
-                <div>timestamp: {formState.timestamp}</div>
-                <div>Dp: {formState.Dp}</div>
-                <div>latitude: {formState.latitude}</div>
-                <div>device time: {formState.device_time}</div>
-                <div>longitude: {formState.longitude}</div>
-              </Card.Text>
-              <Button variant="primary">Delete</Button>
-            </Card.Body>
-          </Card>
-          </Row>
-
         </Col>
       </Row>
     </Container>
