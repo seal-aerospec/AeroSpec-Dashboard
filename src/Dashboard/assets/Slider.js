@@ -56,7 +56,7 @@ export default function TrackFalseSlider() {
 
   return (
     <div className={classes.root} style={{margin: "3vh"}}>
-      <Typography id="track-false-range-slider" gutterBottom>
+      <Typography id="track-false-range-slider" gutterBottom style={{textAlign:'center'}}>
         Scroll to view sensor status throughout the day
       </Typography>
       <Slider
