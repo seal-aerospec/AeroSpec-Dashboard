@@ -28,19 +28,19 @@ const marks = () => {
   for (let i = 0; i <= 24; i++) {
     var label = '';
     if (i == 0) {
-      label = '12';
+      label = <div><div>12</div><div class='apm'>AM</div></div>;
     }
     if (i > 0 && i < 10) {
-      label = '0'+i;
+      label = <div><div>{'0'+i}</div><div class='apm'>AM</div></div>;
     }
-    if (i >= 10 && i <= 12) {
-      label = i;
+    if (i >= 10 && i < 12) {
+      label = <div><div>{i}</div><div class='apm'>AM</div></div>;
     }
-    if (i > 12 && i < 22) {
-      label = "0"+(i-12);
+    if (i >= 12 && i < 22) {
+      label = <div><div>{"0"+(i-12)}</div><div class='apm'>PM</div></div>;
     }
     if (i >= 22) {
-      label = i-12;
+      label =  <div><div>{(i-12)}</div><div class='apm'>PM</div></div>;
     }
     marks.push({
       value: i,
