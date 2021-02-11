@@ -1,0 +1,10 @@
+#bp-edit-panel {
+  margin: 1vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#bp-edit-panel Button {
+  margin: 1vh;
+  align-self: flex-end;
+}
