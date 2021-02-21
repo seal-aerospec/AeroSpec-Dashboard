@@ -5,80 +5,61 @@
 import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { getMockDeviceDataTest } from '../../graphql/queries'
+import examplePic from '../assets/uploaded_blueprints/example.jpg'
+import './home.css'
+import DeviceDetails from './DeviceDetails'
+
 
 /* frontend-imports */
-import { Button, Container, Row, Col, Card, Tab, Tabs } from 'react-bootstrap';
-import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
-import { Form, FormControl} from 'react-bootstrap';
+
 import logo from '../assets/favicon.svg';
 import Slider from '../assets/Slider.js';
-
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch} from "react-router-dom"
 
 
 const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 
 const Dashboard = () => {
   const [formState, setFormState] = useState(initialState)
+  let { path, url } = useRouteMatch();
+  console.log(path);
+  console.log(url);
 
-  async function displayDevice() {
-    try {
-      const store = await API.graphql({ query: getMockDeviceDataTest, variables: {sensor_id: '18', timestamp: '1606880248914'} });
-      const info = store.data.getMockDeviceDataTest;
-      console.log(info);
-      const newData = {sensor_id: info.sensor_id, timestamp: info.timestamp, Dp: info.Dp_greater_point3, latitude: info.latitude, device_time: info.device_time, longitude: info.longitude};
-      console.log(newData);
-      setFormState(newData);
-    }catch (err) {
-      console.log('error: ', err);
-    }
-  }
-
+  // function DeviceDetails() {
+  //   return <h1>hello</h1>
+  // }
   return (
-    <Container fluid>
-      <Row>
-        <Col xs={6}>
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-          <Tab eventKey="home" title="Nano">
-            <p>Nano</p>
-            <Slider></Slider>
-          </Tab>
-          <Tab eventKey="profile" title="Gas">
-            <p>Gas</p>
-          </Tab>
-          <Tab eventKey="contact" title="Temperature" >
-            <p>Temprature</p>
-          </Tab>
-        </Tabs>
-        </Col>
-        <Col xs={4}>
-          <Row>
-            <Col>
-            <p>My Devices</p>
-            </Col>
-            <Col>
-            <Button onClick={displayDevice}>Add</Button>
-            </Col>
-          </Row>
-          <Row>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" />
-            <Card.Body>
-              <Card.Title>sensor id: {formState.sensor_id}</Card.Title>
-              <Card.Text>
-                <div>timestamp: {formState.timestamp}</div>
-                <div>Dp: {formState.Dp}</div>
-                <div>latitude: {formState.latitude}</div>
-                <div>device time: {formState.device_time}</div>
-                <div>longitude: {formState.longitude}</div>
-              </Card.Text>
-              <Button variant="primary">Delete</Button>
-            </Card.Body>
-          </Card>
-          </Row>
+    <div id="home-main">
+      <Route exact path={path}>
+        <Link to={`${url}/device-details`}>
+          Link to device Detail
+        </Link>
+          <AppBar position="static">
+          <Tabs id="type-sensor-tab" style={{display: 'flex', justifyContent: 'center'}}>
+            <Tab label="Nano Particle"/>
+            <Tab label="Gas"/>
+            <Tab label="Temperature" />
+          </Tabs>
+          </AppBar>
+          <Slider>
+          </Slider>
+          <img src={examplePic}></img>
+        </Route>
+        <Route path={`${path}/device-details`} component={DeviceDetails}></Route>
+    </div>
 
-        </Col>
-      </Row>
-    </Container>
   )
 }
 export default Dashboard;

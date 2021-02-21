@@ -1,0 +1,16 @@
+#home-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.apm {
+  font-size: 50%;
+}
