@@ -5,7 +5,7 @@ import './blueprints.css'
 
 
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getMockDeviceDataTest } from '../../graphql/queries'
+import { getFrontendteamschema } from '../../graphql/queries'
 
 /* frontend-imports */
 import Box from '@material-ui/core/Box'
@@ -26,10 +26,10 @@ const BlueprintsAndDevices = props => {
 
   async function displayDevice() {
     try {
-      const store = await API.graphql({ query: getMockDeviceDataTest, variables: {sensor_id: '18', timestamp: '1606880248914'} });
-      const info = store.data.getMockDeviceDataTest;
+      const store = await API.graphql({ query: getFrontendteamschema, variables: {id:'0'} });
+      const info = store.data.getFrontendteamschema;
       console.log(info);
-      const newData = {sensor_id: info.sensor_id, timestamp: info.timestamp, Dp: info.Dp_greater_point3, latitude: info.latitude, device_time: info.device_time, longitude: info.longitude};
+      const newData = {id: info.id, Battery: info.Battery};
       console.log(newData);
       setFormState(newData);
     } catch (err) {
@@ -114,8 +114,8 @@ const BlueprintsAndDevices = props => {
                     <div>delete </div>
                     <div>active</div>
                   </Box>
-                  <div>sensor id: {formState.sensor_id}</div>
-                  <div>timestamp: {formState.timestamp}</div>
+                  <div>sensor id: {formState.id}</div>
+                  <div>timestamp: {formState.Battery}</div>
                   <div>Dp: {formState.Dp}</div>
                   <div>latitude: {formState.latitude}</div>
                   <div>device time: {formState.device_time}</div>
