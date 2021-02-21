@@ -1,39 +1,99 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createMockDeviceDataTest = /* GraphQL */ `
-  mutation CreateMockDeviceDataTest(
-    $input: CreateMockDeviceDataTestInput!
-    $condition: ModelMockDeviceDataTestConditionInput
+export const createFrontendteamschema = /* GraphQL */ `
+  mutation CreateFrontendteamschema(
+    $input: CreateFrontendteamschemaInput!
+    $condition: ModelfrontendteamschemaConditionInput
   ) {
-    createMockDeviceDataTest(input: $input, condition: $condition) {
-      sensor_id
-      timestamp
-      Dp_greater_point3
+    createFrontendteamschema(input: $input, condition: $condition) {
+      id
+      Battery
+      Date
+      Env_PM_smaller_than_1_0
+      Env_PM_smaller_than_10
+      Env_PM_smaller_than_2_5
+      equiv_CO2_ppm
+      Latitude
+      Longitude
+      Particle_Count_0_3um
+      PC_0_5um
+      PC_1_0num
+      PC_10um
+      PC_2_5um
+      PC_5um
+      Relative_Humidity
+      Serial_Number
+      Temperature_c
+      Time
+      total_VoC_ppb
+      Wifi_Strength
+      createdAt
+      updatedAt
     }
   }
 `;
-export const updateMockDeviceDataTest = /* GraphQL */ `
-  mutation UpdateMockDeviceDataTest(
-    $input: UpdateMockDeviceDataTestInput!
-    $condition: ModelMockDeviceDataTestConditionInput
+export const updateFrontendteamschema = /* GraphQL */ `
+  mutation UpdateFrontendteamschema(
+    $input: UpdateFrontendteamschemaInput!
+    $condition: ModelfrontendteamschemaConditionInput
   ) {
-    updateMockDeviceDataTest(input: $input, condition: $condition) {
-      sensor_id
-      timestamp
-      Dp_greater_point3
+    updateFrontendteamschema(input: $input, condition: $condition) {
+      id
+      Battery
+      Date
+      Env_PM_smaller_than_1_0
+      Env_PM_smaller_than_10
+      Env_PM_smaller_than_2_5
+      equiv_CO2_ppm
+      Latitude
+      Longitude
+      Particle_Count_0_3um
+      PC_0_5um
+      PC_1_0num
+      PC_10um
+      PC_2_5um
+      PC_5um
+      Relative_Humidity
+      Serial_Number
+      Temperature_c
+      Time
+      total_VoC_ppb
+      Wifi_Strength
+      createdAt
+      updatedAt
     }
   }
 `;
-export const deleteMockDeviceDataTest = /* GraphQL */ `
-  mutation DeleteMockDeviceDataTest(
-    $input: DeleteMockDeviceDataTestInput!
-    $condition: ModelMockDeviceDataTestConditionInput
+export const deleteFrontendteamschema = /* GraphQL */ `
+  mutation DeleteFrontendteamschema(
+    $input: DeleteFrontendteamschemaInput!
+    $condition: ModelfrontendteamschemaConditionInput
   ) {
-    deleteMockDeviceDataTest(input: $input, condition: $condition) {
-      sensor_id
-      timestamp
-      Dp_greater_point3
+    deleteFrontendteamschema(input: $input, condition: $condition) {
+      id
+      Battery
+      Date
+      Env_PM_smaller_than_1_0
+      Env_PM_smaller_than_10
+      Env_PM_smaller_than_2_5
+      equiv_CO2_ppm
+      Latitude
+      Longitude
+      Particle_Count_0_3um
+      PC_0_5um
+      PC_1_0num
+      PC_10um
+      PC_2_5um
+      PC_5um
+      Relative_Humidity
+      Serial_Number
+      Temperature_c
+      Time
+      total_VoC_ppb
+      Wifi_Strength
+      createdAt
+      updatedAt
     }
   }
 `;

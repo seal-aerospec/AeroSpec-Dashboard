@@ -1,30 +1,70 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getMockDeviceDataTest = /* GraphQL */ `
-  query GetMockDeviceDataTest($sensor_id: String!, $timestamp: String!) {
-    getMockDeviceDataTest(sensor_id: $sensor_id, timestamp: $timestamp) {
-      sensor_id
-      timestamp
-      Dp_greater_point3
+export const getFrontendteamschema = /* GraphQL */ `
+  query GetFrontendteamschema($id: ID!) {
+    getFrontendteamschema(id: $id) {
+      id
+      Battery
+      Date
+      Env_PM_smaller_than_1_0
+      Env_PM_smaller_than_10
+      Env_PM_smaller_than_2_5
+      equiv_CO2_ppm
+      Latitude
+      Longitude
+      Particle_Count_0_3um
+      PC_0_5um
+      PC_1_0num
+      PC_10um
+      PC_2_5um
+      PC_5um
+      Relative_Humidity
+      Serial_Number
+      Temperature_c
+      Time
+      total_VoC_ppb
+      Wifi_Strength
+      createdAt
+      updatedAt
     }
   }
 `;
-export const listMockDeviceDataTests = /* GraphQL */ `
-  query ListMockDeviceDataTests(
-    $filter: ModelMockDeviceDataTestFilterInput
+export const listFrontendteamschemas = /* GraphQL */ `
+  query ListFrontendteamschemas(
+    $filter: ModelfrontendteamschemaFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMockDeviceDataTests(
+    listFrontendteamschemas(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
     ) {
       items {
-        sensor_id
-        timestamp
-        Dp_greater_point3
+        id
+        Battery
+        Date
+        Env_PM_smaller_than_1_0
+        Env_PM_smaller_than_10
+        Env_PM_smaller_than_2_5
+        equiv_CO2_ppm
+        Latitude
+        Longitude
+        Particle_Count_0_3um
+        PC_0_5um
+        PC_1_0num
+        PC_10um
+        PC_2_5um
+        PC_5um
+        Relative_Humidity
+        Serial_Number
+        Temperature_c
+        Time
+        total_VoC_ppb
+        Wifi_Strength
+        createdAt
+        updatedAt
       }
       nextToken
     }

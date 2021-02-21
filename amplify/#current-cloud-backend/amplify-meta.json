@@ -35,8 +35,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-aerospecdashboard-dev-180438-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiaerospecdashboard"
       },
-      "lastPushTimeStamp": "2020-11-16T00:18:58.980Z",
-      "lastPushDirHash": "vsBOcqePxwe/ppbdsLSVISl5hhE="
+      "lastPushTimeStamp": "2021-02-21T23:09:46.146Z",
+      "lastPushDirHash": "K49Sb4RO8gBiUSdzQnR5NIG7N9I="
     }
   }
 }

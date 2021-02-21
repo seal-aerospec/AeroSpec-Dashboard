@@ -86,7 +86,7 @@
         }
     },
     "Resources": {
-        "MockDeviceDataTestTable": {
+        "frontendteamschemaTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "TableName": {
@@ -96,7 +96,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "MockDeviceDataTest",
+                                    "frontendteamschema",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     },
@@ -110,7 +110,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "MockDeviceDataTest",
+                                    "frontendteamschema",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
                                     }
@@ -182,7 +182,7 @@
             },
             "DeletionPolicy": "Delete"
         },
-        "MockDeviceDataTestIAMRole": {
+        "frontendteamschemaIAMRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {
@@ -192,7 +192,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "MockDeviceData1c1490",
+                                    "frontendteamsc4abd0e",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -207,7 +207,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "MockDeviceDataTestcdb8fa",
+                                    "frontendteamschema88454a",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -259,7 +259,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "MockDeviceDataTest",
+                                                                        "frontendteamschema",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -273,7 +273,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "MockDeviceDataTest",
+                                                                        "frontendteamschema",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -296,7 +296,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "MockDeviceDataTest",
+                                                                        "frontendteamschema",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         },
@@ -310,7 +310,7 @@
                                                                 "Fn::Join": [
                                                                     "-",
                                                                     [
-                                                                        "MockDeviceDataTest",
+                                                                        "frontendteamschema",
                                                                         {
                                                                             "Ref": "GetAttGraphQLAPIApiId"
                                                                         }
@@ -330,17 +330,17 @@
                 ]
             }
         },
-        "MockDeviceDataTestDataSource": {
+        "frontendteamschemaDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
                     "Ref": "GetAttGraphQLAPIApiId"
                 },
-                "Name": "MockDeviceDataTestTable",
+                "Name": "frontendteamschemaTable",
                 "Type": "AMAZON_DYNAMODB",
                 "ServiceRoleArn": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestIAMRole",
+                        "frontendteamschemaIAMRole",
                         "Arn"
                     ]
                 },
@@ -355,7 +355,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "MockDeviceDataTest",
+                                        "frontendteamschema",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         },
@@ -369,7 +369,7 @@
                                 "Fn::Join": [
                                     "-",
                                     [
-                                        "MockDeviceDataTest",
+                                        "frontendteamschema",
                                         {
                                             "Ref": "GetAttGraphQLAPIApiId"
                                         }
@@ -381,10 +381,10 @@
                 }
             },
             "DependsOn": [
-                "MockDeviceDataTestIAMRole"
+                "frontendteamschemaIAMRole"
             ]
         },
-        "GetMockDeviceDataTestResolver": {
+        "GetfrontendteamschemaResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -392,11 +392,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestDataSource",
+                        "frontendteamschemaDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getMockDeviceDataTest",
+                "FieldName": "getFrontendteamschema",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -413,7 +413,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getMockDeviceDataTest",
+                                        "getFrontendteamschema",
                                         "req",
                                         "vtl"
                                     ]
@@ -437,7 +437,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getMockDeviceDataTest",
+                                        "getFrontendteamschema",
                                         "res",
                                         "vtl"
                                     ]
@@ -448,7 +448,7 @@
                 }
             }
         },
-        "ListMockDeviceDataTestResolver": {
+        "ListfrontendteamschemaResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -456,11 +456,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestDataSource",
+                        "frontendteamschemaDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "listMockDeviceDataTests",
+                "FieldName": "listFrontendteamschemas",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -477,7 +477,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listMockDeviceDataTests",
+                                        "listFrontendteamschemas",
                                         "req",
                                         "vtl"
                                     ]
@@ -501,7 +501,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "listMockDeviceDataTests",
+                                        "listFrontendteamschemas",
                                         "res",
                                         "vtl"
                                     ]
@@ -512,7 +512,7 @@
                 }
             }
         },
-        "CreateMockDeviceDataTestResolver": {
+        "CreatefrontendteamschemaResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -520,11 +520,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestDataSource",
+                        "frontendteamschemaDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "createMockDeviceDataTest",
+                "FieldName": "createFrontendteamschema",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -541,7 +541,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createMockDeviceDataTest",
+                                        "createFrontendteamschema",
                                         "req",
                                         "vtl"
                                     ]
@@ -565,7 +565,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "createMockDeviceDataTest",
+                                        "createFrontendteamschema",
                                         "res",
                                         "vtl"
                                     ]
@@ -576,7 +576,7 @@
                 }
             }
         },
-        "UpdateMockDeviceDataTestResolver": {
+        "UpdatefrontendteamschemaResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -584,11 +584,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestDataSource",
+                        "frontendteamschemaDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "updateMockDeviceDataTest",
+                "FieldName": "updateFrontendteamschema",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -605,7 +605,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateMockDeviceDataTest",
+                                        "updateFrontendteamschema",
                                         "req",
                                         "vtl"
                                     ]
@@ -629,7 +629,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "updateMockDeviceDataTest",
+                                        "updateFrontendteamschema",
                                         "res",
                                         "vtl"
                                     ]
@@ -640,7 +640,7 @@
                 }
             }
         },
-        "DeleteMockDeviceDataTestResolver": {
+        "DeletefrontendteamschemaResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -648,11 +648,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "MockDeviceDataTestDataSource",
+                        "frontendteamschemaDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "deleteMockDeviceDataTest",
+                "FieldName": "deleteFrontendteamschema",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -669,7 +669,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteMockDeviceDataTest",
+                                        "deleteFrontendteamschema",
                                         "req",
                                         "vtl"
                                     ]
@@ -693,7 +693,7 @@
                                     ".",
                                     [
                                         "Mutation",
-                                        "deleteMockDeviceDataTest",
+                                        "deleteFrontendteamschema",
                                         "res",
                                         "vtl"
                                     ]
@@ -706,11 +706,11 @@
         }
     },
     "Outputs": {
-        "GetAttMockDeviceDataTestTableStreamArn": {
+        "GetAttfrontendteamschemaTableStreamArn": {
             "Description": "Your DynamoDB table StreamArn.",
             "Value": {
                 "Fn::GetAtt": [
-                    "MockDeviceDataTestTable",
+                    "frontendteamschemaTable",
                     "StreamArn"
                 ]
             },
@@ -723,18 +723,18 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "MockDeviceDataTestTable",
+                            "frontendteamschemaTable",
                             "StreamArn"
                         ]
                     ]
                 }
             }
         },
-        "GetAttMockDeviceDataTestDataSourceName": {
+        "GetAttfrontendteamschemaDataSourceName": {
             "Description": "Your model DataSource name.",
             "Value": {
                 "Fn::GetAtt": [
-                    "MockDeviceDataTestDataSource",
+                    "frontendteamschemaDataSource",
                     "Name"
                 ]
             },
@@ -747,17 +747,17 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "MockDeviceDataTestDataSource",
+                            "frontendteamschemaDataSource",
                             "Name"
                         ]
                     ]
                 }
             }
         },
-        "GetAttMockDeviceDataTestTableName": {
+        "GetAttfrontendteamschemaTableName": {
             "Description": "Your DynamoDB table name.",
             "Value": {
-                "Ref": "MockDeviceDataTestTable"
+                "Ref": "frontendteamschemaTable"
             },
             "Export": {
                 "Name": {
@@ -768,7 +768,7 @@
                                 "Ref": "AppSyncApiId"
                             },
                             "GetAtt",
-                            "MockDeviceDataTestTable",
+                            "frontendteamschemaTable",
                             "Name"
                         ]
                     ]

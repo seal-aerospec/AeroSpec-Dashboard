@@ -120,7 +120,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1637021690
+                        1645484827
                     ]
                 }
             },
@@ -150,7 +150,7 @@
                 }
             }
         },
-        "MockDeviceDataTest": {
+        "frontendteamschema": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -215,7 +215,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "MockDeviceDataTest.json"
+                            "frontendteamschema.json"
                         ]
                     ]
                 }
@@ -267,7 +267,7 @@
             "DependsOn": [
                 "GraphQLAPI",
                 "GraphQLSchema",
-                "MockDeviceDataTest"
+                "frontendteamschema"
             ]
         }
     },
