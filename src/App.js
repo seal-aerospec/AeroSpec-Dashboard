@@ -94,14 +94,14 @@ const App = () => {
             <Row>
                 <Col xs={2}>
                     <Nav defaultActiveKey="/home" className="flex-column">
-                        <Nav.Link><Link to="/">Home</Link></Nav.Link>
+                        <Nav.Link><Link to="/home">Home</Link></Nav.Link>
                         <Nav.Link><Link to="/alerts">Alerts</Link></Nav.Link>
                         <Nav.Link><Link to="/blueprints-and-devices">Blueprints and Device</Link></Nav.Link>
                         <Nav.Link><Link to="/settings">Settings</Link></Nav.Link>
                     </Nav>
                 </Col>
                 <Col xs={10}>
-                    <Route path="/" exact component={Home}/>
+                    <Route path="/home" component={Home}/>
                     <Route path="/alerts" component={Alerts}/>
                     <Route path="/settings" component={Settings}/>
                     <Route path="/blueprints-and-devices" component={Blueprints}/>
