@@ -20,7 +20,7 @@ const list = [];
 const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 const BlueprintsAndDevices = props => {
   const [dotList, setDotList] = useState([]);
-  const [formState, setFormState] = useState(initialState)
+  const [deviceState, setDeviceState] = useState(initialState)
 
   const canvasRef = useRef(null);
 
@@ -29,9 +29,9 @@ const BlueprintsAndDevices = props => {
       const store = await API.graphql({ query: getFrontendteamschema, variables: {id:'0'} });
       const info = store.data.getFrontendteamschema;
       console.log(info);
-      const newData = {id: info.id, Battery: info.Battery};
+      const newData = {SerialNumber: info.Serial_Number, Battery: info.Battery, WifiStrength: info.Wifi_Strength};
       console.log(newData);
-      setFormState(newData);
+      setDeviceState(newData);
     } catch (err) {
       console.log('error: ', err);
     }
@@ -52,6 +52,8 @@ const BlueprintsAndDevices = props => {
       var y = event.offsetY - 10;
       context.drawImage(dot, x, y, 25, 25);
     });
+
+    displayDevice();
   }, []);
 
   function drawOne(event){
@@ -104,7 +106,7 @@ const BlueprintsAndDevices = props => {
         <Paper variant="outlined" square style={{height:"100%", padding: ""}}>
           <Box display="flex" flexDirection="row" justifyContent="space-between">
             <div>My Device</div>
-            <Button onClick={displayDevice}>Add</Button>
+            <Button>Add</Button>
           </Box>
           <Box>
               <Card style={{ width: '18rem', padding: '10px', margin: '10px'}}>
@@ -114,12 +116,9 @@ const BlueprintsAndDevices = props => {
                     <div>delete </div>
                     <div>active</div>
                   </Box>
-                  <div>sensor id: {formState.id}</div>
-                  <div>timestamp: {formState.Battery}</div>
-                  <div>Dp: {formState.Dp}</div>
-                  <div>latitude: {formState.latitude}</div>
-                  <div>device time: {formState.device_time}</div>
-                  <div>longitude: {formState.longitude}</div>
+                  <div>Serial Number: {deviceState.SerialNumber}</div>
+                  <div>Battery: {deviceState.Battery}</div>
+                  <div>Wifi Strength: {deviceState.WifiStrength}</div>
               </Card>
           </Box>
         </Paper>
