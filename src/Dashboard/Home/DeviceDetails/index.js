@@ -2,6 +2,7 @@ import React from 'react';
 import examplePic from '../../assets/uploaded_blueprints/example.jpg'
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
+import ParticleGasTemp from '../ParticleGasTemp/ParticleGasTemp'
 
 function DeviceDetails() {
   console.log("here");
@@ -25,6 +26,7 @@ function DeviceDetails() {
       <img src={examplePic} className={style.FloorPlan}/>
     </Paper>
     <Paper className={style.paper}>
+      <ParticleGasTemp />
     </Paper>
     </div>
   );
