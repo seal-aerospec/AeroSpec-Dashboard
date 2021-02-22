@@ -5,7 +5,7 @@ import { getFrontendteamschema } from '../../../graphql/queries'
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-const initialTemp = { Temperature_c: '' };
+const initialEnv = { Temperature_c: '', Relative_Humidity: ''};
 const initialGasState = { equiv_CO2_ppm: '' };
 const initialParticle = {
   Particle_Count_0_3um: '',
@@ -14,13 +14,14 @@ const initialParticle = {
   PC_10um: '',
   PC_2_5um: '',
   PC_5um: '',
+  total_VoC_ppb: '',
   Env_PM_smaller_than_1_0: '',
   Env_PM_smaller_than_10: '',
   Env_PM_smaller_than_2_5: '',
 };
 
 export default function ParticleGasTemp () {
-  const [tempState, setTempState] = useState(initialTemp);
+  const [envState, setEnvState] = useState(initialEnv);
   const [particleState, setParticleState] = useState(initialParticle);
   const [gasState, setGasState] = useState(initialGasState);
 
@@ -38,27 +39,29 @@ export default function ParticleGasTemp () {
           Env_PM_smaller_than_1_0: info.Env_PM_smaller_than_1_0,
           Env_PM_smaller_than_10: info.Env_PM_smaller_than_10,
           Env_PM_smaller_than_2_5: info.Env_PM_smaller_than_2_5,
+          total_VoC_ppb: info.total_VoC_ppb,
         };
         setParticleState(newData);
       } catch (err) {
         console.log('error: ', err);
       }
     }
-  
-    async function displayTemp() {
+
+    async function displayEnv() {
       try {
         const store = await API.graphql({ query: getFrontendteamschema, variables: {id: '0'} });
         console.log(store);
         const info = store.data.getFrontendteamschema;
         const newData = {
-          Temperature_c: info.Temperature_c
+          Temperature_c: info.Temperature_c,
+          Relative_Humidity: info.Relative_Humidity
         };
-        setTempState(newData);
+        setEnvState(newData);
       } catch (err) {
         console.log('error: ', err);
       }
     }
-  
+
     async function displayGas() {
       try {
         const store = await API.graphql({ query: getFrontendteamschema, variables: {id: '0'} });
@@ -73,7 +76,7 @@ export default function ParticleGasTemp () {
     }
 
     useEffect(() => {
-      displayTemp();
+      displayEnv();
       displayParticle();
       displayGas();
     }, []);
@@ -81,7 +84,9 @@ export default function ParticleGasTemp () {
     return (
       <Container>
         <Typography variant="body1" style={{whiteSpace: 'pre-line'}} >
-          Temperature: {tempState.Temperature_c}
+          Temperature: {envState.Temperature_c}
+          <br />
+          Relative_Humidity: {envState.Relative_Humidity}
           <br />
           equiv_CO2_ppm: {gasState.equiv_CO2_ppm}
           <br />
@@ -96,6 +101,8 @@ export default function ParticleGasTemp () {
           PC_2_5um: {particleState.PC_2_5um}
           <br />
           PC_5um: {particleState.PC_5um}
+          <br />
+          total_VoC_ppb: {particleState.total_VoC_ppb}
           <br />
           Env_PM_smaller_than_1_0: {particleState.Env_PM_smaller_than_1_0}
           <br />
