@@ -2,22 +2,21 @@
 import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { getFrontendteamschema } from '../../../graphql/queries'
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 const initialTemp = { Temperature_c: '' };
+const initialGasState = { equiv_CO2_ppm: '' };
 const initialParticle = {
   Particle_Count_0_3um: '',
   PC_0_5um: '',
   PC_1_0num: '',
   PC_10um: '',
   PC_2_5um: '',
-  PC_5um: ''
-
-};
-const initialGasState = {
+  PC_5um: '',
   Env_PM_smaller_than_1_0: '',
   Env_PM_smaller_than_10: '',
   Env_PM_smaller_than_2_5: '',
-  equiv_CO2_ppm: ''
 };
 
 export default function ParticleGasTemp () {
@@ -28,7 +27,7 @@ export default function ParticleGasTemp () {
     async function displayParticle() {
         try {
           const store = await API.graphql({ query: getFrontendteamschema, variables: {id: '0'} });
-          const info = store.data.getDeviceDataTest;
+          const info = store.data.getFrontendteamschema;
           //const payload = JSON.parse(info.payload);
           const newData = {
             Particle_Count_0_3um: info.Particle_Count_0_3um,
@@ -36,10 +35,13 @@ export default function ParticleGasTemp () {
             PC_1_0num: info.PC_1_0num,
             PC_10um: info.PC_10um,
             PC_2_5um: info.PC_2_5um,
-            PC_5um: info.PC_5um
+            PC_5um: info.PC_5um,
+            Env_PM_smaller_than_1_0: info.Env_PM_smaller_than_1_0,
+            Env_PM_smaller_than_10: info.Env_PM_smaller_than_10,
+            Env_PM_smaller_than_2_5: info.Env_PM_smaller_than_2_5,
           };
           setParticleState(newData);
-          console.log(newData);
+          //console.log(newData);
           //console.log(payload);
         } catch (err) {
           console.log('error: ', err);
@@ -49,13 +51,14 @@ export default function ParticleGasTemp () {
       async function displayTemp() {
         try {
           const store = await API.graphql({ query: getFrontendteamschema, variables: {id: '0'} });
-          const info = store.data.getDeviceDataTest;
+          console.log(store);
+          const info = store.data.getFrontendteamschema;
           //const payload = JSON.parse(info.payload);
           const newData = {
             Temperature_c: info.Temperature_c
           };
           setTempState(newData);
-          console.log(newData);
+          //console.log(newData);
           //console.log(payload);
         } catch (err) {
           console.log('error: ', err);
@@ -65,17 +68,14 @@ export default function ParticleGasTemp () {
       async function displayGas() {
         try {
           const store = await API.graphql({ query: getFrontendteamschema, variables: {id: '0'} });
-          const info = store.data.getDeviceDataTest;
-          console.log('info: ' + info);
+          const info = store.data.getFrontendteamschema;
+          //console.log('info: ' + info);
           //const payload = JSON.parse(info.payload);
           const newData = {
-            Env_PM_smaller_than_1_0: info.Env_PM_smaller_than_1_0,
-            Env_PM_smaller_than_10: info.Env_PM_smaller_than_10,
-            Env_PM_smaller_than_2_5: info.Env_PM_smaller_than_2_5,
             equiv_CO2_ppm: info.equiv_CO2_ppm
           };
           setGasState(newData);
-          console.log(newData);
+          //console.log(newData);
           //console.log(payload);
         } catch (err) {
           console.log('error: ', err);
@@ -88,18 +88,20 @@ export default function ParticleGasTemp () {
         displayGas();
       }
 
-      useEffect(() => {
-        displayTemp();
-        displayParticle();
-        displayGas();
-      }, [tempState, particleState, gasState]);
+    //   useEffect(() => {
+    //     displayTemp();
+    //     //displayParticle();
+    //     //displayGas();
+    //   }, []);
 
       return (
+          <Container>
+
+          </Container>
           <div>
             <div>
-                {displayAll}
+                <p>{tempState.Temperature_c}</p>
             </div>
-            <p>{tempState.Temperature_c}</p>
           </div>
       )
 }
