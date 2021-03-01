@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -90,18 +91,16 @@ const BlueprintsAndDevices = props => {
   }
 
   const useStyles = makeStyles((theme) => ({
+    deviceTitle: {
+      display: 'inline-flex'
+    },
     activeButton: {
-      height: 20,
+      height: 25,
       position: 'relative',
-      bottom: -7,
+      bottom: -6,
       backgroundColor: '#3e6eb0',
       color: '#ffffff',
       borderRadius: 20
-    },
-    deleteButton: {
-      top: 0,
-      right: 0,
-      position: 'absolute'
     },
     deleteIcon: {
       width: 15
@@ -131,25 +130,38 @@ const BlueprintsAndDevices = props => {
       <Box>
         <Paper variant="outlined" square style={{height:"100%", padding: 5}}>
           <Box display="flex" flexDirection="row" justifyContent="space-between">
-            <h5>My Devices</h5>
+            <h5>&nbsp;&nbsp;My Devices</h5>
             <Button>Add +</Button>
           </Box>
           <Box>
               <Card style={{ width: '18rem', padding: '10px', margin: '10px'}}>
-                  <p>DEVICE NAME</p>
-                  <Box display="flex" flexDirection="row" justifyContent="space-between">
-                    <h5>AeroSpec 9</h5>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   
-                    <Button>
-                      <img src={DeleteIcon} alt="Delete Button" className={classes.deleteIcon} />
-                    </Button>
-                    <Button color="primary" className={classes.activeButton}>
-                      Active
-                    </Button>
-                  </Box>
-                  <div>Serial Number: {deviceState.SerialNumber}</div>
-                  <div>Battery: {deviceState.Battery}</div>
-                  <div>Wifi Strength: {deviceState.WifiStrength}</div>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <h6>DEVICE NAME</h6>
+                  </Grid>
+                  <Grid container className={classes.deviceTitle}>
+                    <Grid className="d-flex" item form="maincomponent" justifyContent="space-between" xs>
+                      <h4>Aerospec 9</h4>
+                      <Button>
+                        <img src={DeleteIcon} alt="Delete Button" className={classes.deleteIcon} />
+                      </Button>
+                      <Button color="primary" className={classes.activeButton}>
+                        Active
+                      </Button>
+                    </Grid>
+                  </Grid>
+                  {/* <Box display="flex" flexDirection="row" justifyContent="space-between">
+                  </Box> */}
+                  <Grid item xs={12}>
+                    <div>Serial Number: {deviceState.SerialNumber}</div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div>Battery: {deviceState.Battery}</div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div>Wifi Strength: {deviceState.WifiStrength}</div>
+                  </Grid>
+                </Grid>
               </Card>
           </Box>
         </Paper>
