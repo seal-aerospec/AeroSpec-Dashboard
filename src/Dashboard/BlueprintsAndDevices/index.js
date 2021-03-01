@@ -14,6 +14,11 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
+/* Asset Imports */
+import DeleteIcon from '../assets/UI_component/bin.png';
+import Typography from 'material-ui/styles/typography';
 
 const list = [];
 
@@ -84,6 +89,27 @@ const BlueprintsAndDevices = props => {
     reader.readAsDataURL(e.target.files[0]);
   }
 
+  const useStyles = makeStyles((theme) => ({
+    activeButton: {
+      height: 20,
+      position: 'relative',
+      bottom: -7,
+      backgroundColor: '#3e6eb0',
+      color: '#ffffff',
+      borderRadius: 20
+    },
+    deleteButton: {
+      top: 0,
+      right: 0,
+      position: 'absolute'
+    },
+    deleteIcon: {
+      width: 15
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
     <Box display="flex" flexDirection="row" style={{width: '100%'}}>
       <Box style={{margin: "5vh"}}>
@@ -103,18 +129,23 @@ const BlueprintsAndDevices = props => {
         </Paper>
       </Box>
       <Box>
-        <Paper variant="outlined" square style={{height:"100%", padding: ""}}>
+        <Paper variant="outlined" square style={{height:"100%", padding: 5}}>
           <Box display="flex" flexDirection="row" justifyContent="space-between">
-            <div>My Device</div>
-            <Button>Add</Button>
+            <h5>My Devices</h5>
+            <Button>Add +</Button>
           </Box>
           <Box>
               <Card style={{ width: '18rem', padding: '10px', margin: '10px'}}>
-                  <div>DEVICE NAME</div>
+                  <p>DEVICE NAME</p>
                   <Box display="flex" flexDirection="row" justifyContent="space-between">
-                    <div> AeroSpec 9</div>
-                    <div>delete </div>
-                    <div>active</div>
+                    <h5>AeroSpec 9</h5>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   
+                    <Button>
+                      <img src={DeleteIcon} alt="Delete Button" className={classes.deleteIcon} />
+                    </Button>
+                    <Button color="primary" className={classes.activeButton}>
+                      Active
+                    </Button>
                   </Box>
                   <div>Serial Number: {deviceState.SerialNumber}</div>
                   <div>Battery: {deviceState.Battery}</div>
