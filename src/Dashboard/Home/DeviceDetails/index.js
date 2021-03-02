@@ -13,6 +13,12 @@ function DeviceDetails() {
       margin: '5vh',
       padding: '1vh'
       },
+    chartPaper: {
+      height: '100%',
+      width: '100vh',
+      margin: '5vh',
+      padding: '1vh'
+    },
     FloorPlan: {
       objectFit: 'cover'
     }
@@ -25,7 +31,7 @@ function DeviceDetails() {
     <Paper className={style.paper}>
       <img src={examplePic} className={style.FloorPlan}/>
     </Paper>
-    <Paper className={style.paper}>
+    <Paper className={style.chartPaper}>
       <ParticleGasTemp />
     </Paper>
     </div>

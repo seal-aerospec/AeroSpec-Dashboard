@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# getting start
+# Build details
+## frontend
+
+### React npm dev Command Guide.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +72,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+ amplify CLI
+Git operations to clone
+Graphql Change schema
+File structure what is in each file
+aplify backend and react frontend
+What the Dashboard is doing
+functionality and figma explained
+Cloud environment of this
+
+
