@@ -96,11 +96,9 @@ const BlueprintsAndDevices = props => {
     },
     activeButton: {
       height: 25,
-      position: 'relative',
-      bottom: -6,
       backgroundColor: '#3e6eb0',
       color: '#ffffff',
-      borderRadius: 20
+      borderRadius: 20,
     },
     deleteIcon: {
       width: 15
@@ -135,16 +133,20 @@ const BlueprintsAndDevices = props => {
           </Box>
           <Box>
               <Card style={{ width: '18rem', padding: '10px', margin: '10px'}}>
-                <Grid container>
+                <Grid container direction="column">
                   <Grid item xs={12}>
                     <h6>DEVICE NAME</h6>
                   </Grid>
-                  <Grid container className={classes.deviceTitle}>
+                  <Grid item container className={classes.deviceTitle}>
                     <Grid className="d-flex" item form="maincomponent" justifyContent="space-between" xs>
                       <h4>Aerospec 9</h4>
+                    </Grid>
+                    <Grid item>
                       <Button>
                         <img src={DeleteIcon} alt="Delete Button" className={classes.deleteIcon} />
                       </Button>
+                    </Grid>
+                    <Grid item>
                       <Button color="primary" className={classes.activeButton}>
                         Active
                       </Button>

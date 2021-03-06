@@ -11,11 +11,11 @@ import DeviceDetails from './DeviceDetails'
 
 
 /* frontend-imports */
-
 import logo from '../assets/favicon.svg';
 import Slider from '../assets/Slider.js';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
@@ -28,6 +28,7 @@ import {
   useParams,
   useRouteMatch} from "react-router-dom"
 
+import { makeStyles } from '@material-ui/core/styles';
 
 const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 
@@ -37,27 +38,66 @@ const Dashboard = () => {
   console.log(path);
   console.log(url);
 
-  // function DeviceDetails() {
-  //   return <h1>hello</h1>
-  // }
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+    },
+    blueprint: {
+      backgroundColor: '#ffffff',
+    },
+    graphBtn: {
+      backgroundColor: "#FFFFFF",
+      margin: theme.spacing(1),
+      borderRadius: '10em',
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
-    <div id="home-main">
+    <div id="home-main" className={classes.root}>
       <Route exact path={path}>
-        <Link to={`${url}/device-details`}>
-          Link to device Detail
-        </Link>
-          <AppBar position="static">
-          <Tabs id="type-sensor-tab" style={{display: 'flex', justifyContent: 'center'}}>
+        <Grid xs={12} container>
+          <Link to={`/device-details`} className={classes.img} >
+            Link to device Detail
+          </Link>
+          <Grid item container>
+            <Grid item>
+              <Button className={classes.graphBtn}>
+                Nano Particle
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button className={classes.graphBtn}>
+                Gas
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button className={classes.graphBtn}>
+                Temperature
+              </Button>
+            </Grid>
+          </Grid>
+          {/* <Tabs id="type-sensor-tab" style={{display: 'flex', justifyContent: 'center'}}>
             <Tab label="Nano Particle"/>
             <Tab label="Gas"/>
             <Tab label="Temperature" />
-          </Tabs>
-          </AppBar>
-          <Slider>
-          </Slider>
-          <img src={examplePic}></img>
-        </Route>
-        <Route path={`${path}/device-details`} component={DeviceDetails}></Route>
+          </Tabs> */}
+          <Grid 
+              alignItems="center"
+              justify="center"
+              container 
+              item
+              className={classes.blueprint}
+            >
+            <Slider />
+            <Grid item>
+              <img src={examplePic} alt="blueprint" />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Route>
+      <Route path={`/device-details`} component={DeviceDetails}></Route>
     </div>
 
   )
