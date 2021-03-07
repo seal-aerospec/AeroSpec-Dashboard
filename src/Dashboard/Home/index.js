@@ -2,41 +2,32 @@
 // import './dashboard2.css';
 
 /* src/App.js */
-import React, { useEffect, useState } from 'react'
-import Amplify, { API, graphqlOperation } from 'aws-amplify'
-import { getMockDeviceDataTest } from '../../graphql/queries'
+import React from 'react'
+// import Amplify, { API, graphqlOperation } from 'aws-amplify'
+// import { getMockDeviceDataTest } from '../../graphql/queries'
 import examplePic from '../assets/uploaded_blueprints/example.jpg'
 import './home.css'
 import DeviceDetails from './DeviceDetails'
 
-
 /* frontend-imports */
-import logo from '../assets/favicon.svg';
+// import logo from '../assets/favicon.svg';
 import Slider from '../assets/Slider.js';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
+// import Paper from '@material-ui/core/Paper';
+// import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import {
   BrowserRouter as Router,
-  Switch,
+  // Switch,
   Route,
   Link,
-  useParams,
+  // useParams,
   useRouteMatch} from "react-router-dom"
 
 import { makeStyles } from '@material-ui/core/styles';
 
-const initialState = { id: '', time: '', sensor: '', timestamp: ''}
-
 const Dashboard = () => {
-  const [formState, setFormState] = useState(initialState)
   let { path, url } = useRouteMatch();
-  console.log(path);
-  console.log(url);
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,8 +38,12 @@ const Dashboard = () => {
     },
     graphBtn: {
       backgroundColor: "#FFFFFF",
+      padding: '12px 24px',
       margin: theme.spacing(1),
       borderRadius: '10em',
+      fontSize: '16px',
+      color: '#707070',
+      textTransform: 'none',
     },
   }));
 
@@ -63,7 +58,7 @@ const Dashboard = () => {
           </Link>
           <Grid item container>
             <Grid item>
-              <Button className={classes.graphBtn}>
+              <Button size='large' className={classes.graphBtn}>
                 Nano Particle
               </Button>
             </Grid>
