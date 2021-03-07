@@ -83,25 +83,26 @@ const App = () => {
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
         }),
-      },    
-      menuButton: {
-        // marginTop: theme.spacing(2),
-        // marginRight: theme.spacing(2),
       },
       hide: {
         display: 'none',
       },
+      dividerContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
       divider: {
-        // Theme Color, or use css color in quote
-        background: '#FFFFFF',
+        background: '#557fb9',
+        width: '85%',
       },
       drawer: {
-        width: drawerWidth-15,
-        flexShrink: 0,
+        width: drawerWidth-10,
+        flexShrink: 1,
       },
       drawerPaper: {
         backgroundColor: '#3E6EB0',
-        width: drawerWidth-15,
+        width: drawerWidth-10,
       },
       drawerHeader: {
         display: 'flex',
@@ -111,10 +112,9 @@ const App = () => {
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         backgroundColor: '#FFFFFF',
-        border: 0,
       },
       drawerHeaderImg: {
-        maxWidth: '85%',
+        maxWidth: '70%',
         maxHeight: 'auto',
       },
       drawerText: {
@@ -229,7 +229,6 @@ const App = () => {
               <Grid xs={2} l={2} item>
                 <Drawer
                   className={classes.drawer}
-                  elevation={16}
                   variant="persistent"
                   anchor="left"
                   open={menuCollapse}
@@ -240,7 +239,6 @@ const App = () => {
                   <div className={classes.drawerHeader}>
                     <img src={navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
                   </div>
-                  <Divider className={classes.drawerText} />
                   <List>
                     <ListItem button key='Home' component={Link} to={"/home"}>
                       <ListItemIcon>
@@ -248,21 +246,27 @@ const App = () => {
                       </ListItemIcon>
                       <ListItemText primary='Home' className={classes.drawerText} />
                     </ListItem>
-                    <Divider className={classes.divider} />
+                    <List className={classes.dividerContainer}>
+                      <Divider className={classes.divider} />
+                    </List>
                     <ListItem button key='Alerts' component={Link} to={"/alerts"}>
                       <ListItemIcon>
                         <Alert2Icon />
                       </ListItemIcon>
                       <ListItemText primary='Alerts' className={classes.drawerText} />
                     </ListItem>
-                    <Divider className={classes.divider} />
+                    <List className={classes.dividerContainer}>
+                      <Divider className={classes.divider} />
+                    </List>
                     <ListItem button key='BlueprintsDevices' component={Link} to={"/blueprints-and-devices"}>
                       <ListItemIcon>
                         <BlueprintsDevicesIcon />
                       </ListItemIcon>
                       <ListItemText primary='Blueprints & Devices' className={classes.drawerText} />
                     </ListItem>
-                    <Divider className={classes.divider} />
+                    <List className={classes.dividerContainer}>
+                      <Divider className={classes.divider} />
+                    </List>
                     <ListItem button key='Settings' component={Link} to={"/settings"}>
                       <ListItemIcon>
                         <SettingsIcon />
@@ -270,7 +274,9 @@ const App = () => {
                       <ListItemText primary='Settings' className={classes.drawerText} />
                     </ListItem>
                   </List>
-                  <Divider className={classes.divider} />
+                  <List className={classes.dividerContainer}>
+                    <Divider className={classes.divider} />
+                  </List>
                 </Drawer>
               </Grid>
               <Grid item xs={10} justify="center" 
