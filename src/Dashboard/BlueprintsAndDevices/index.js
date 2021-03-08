@@ -103,6 +103,29 @@ const BlueprintsAndDevices = props => {
     deleteIcon: {
       width: 15
     },
+    editBtn: {
+      backgroundColor: "#FFFFFF",
+      padding: '12px 24px',
+      margin: theme.spacing(1),
+      borderRadius: '10em',
+      fontSize: '16px',
+      color: '#486EAB',
+      textTransform: 'none',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderColor: '#486EAB',
+    },
+    saveBtn: {
+      backgroundColor: "#486EAB",
+      padding: '12px 24px',
+      margin: theme.spacing(1),
+      borderRadius: '10em',
+      fontSize: '16px',
+      color: '#FFFFFF',
+      textTransform: 'none',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+    }
   }));
 
   const classes = useStyles();
@@ -113,10 +136,10 @@ const BlueprintsAndDevices = props => {
         <Paper style={{padding: "5vh"}}>
           <Box display="flex" id="bp-edit-panel">
             {"Pick and place the sensor on its location"}
-            <Button variant="contained" color="primary">
+            <Button className={classes.editBtn}>
               Edit Blueprint
             </Button>
-            <Button variant="contained" color="primary">
+            <Button className={classes.saveBtn}>
               Save Changes
             </Button>
           </Box>
