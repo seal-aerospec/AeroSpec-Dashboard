@@ -3,6 +3,7 @@ import {Route, BrowserRouter as Router, Switch, Link} from "react-router-dom"
 
 /* ./assets/UI_component */
 import navbarLogo from './Dashboard/assets/UI_component/AeroSpec PNG-7.png';
+import ActiveTabIcon from './Dashboard/assets/UI_component_svg/ActiveTabIcon';
 import Alert2Icon from './Dashboard/assets/UI_component_svg/Alert2Icon';
 import BlueprintsDevicesIcon from './Dashboard/assets/UI_component_svg/BlueprintsDevicesIcon';
 import HomeIcon from './Dashboard/assets/UI_component_svg/HomeIcon';
@@ -47,6 +48,11 @@ const App = () => {
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = useState(getModalStyle);
     const drawerWidth = 280;
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const handleListItemClick = (event, index) => {
+      setSelectedIndex(index);
+    };
 
     const collapseClick = () => {
       //condition checking to change state from true to false and vice versa
@@ -115,7 +121,7 @@ const App = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: theme.spacing(3, 3),
+        padding: theme.spacing(3.3, 3.3),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         backgroundColor: '#FFFFFF',
@@ -188,7 +194,7 @@ const App = () => {
           <Grid container xs={12} direction="column">
             <Grid item container>
               <AppBar
-                elevation={3} 
+                elevation={1} 
                 className={clsx(classes.appBar, {
                   [classes.appBarShift]: menuCollapse,
                 })}
@@ -246,8 +252,15 @@ const App = () => {
                     <div className={classes.drawerHeader}>
                       <img src={navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
                     </div>
+                    <Divider />
                     <List>
-                      <ListItem button key='Home' component={Link} to={"/home"}>
+                      <ListItem 
+                        button key='Home' 
+                        component={Link} 
+                        to={"/home"}
+                        selected={selectedIndex === 0}
+                        onClick={(event) => handleListItemClick(event, 0)}
+                      >
                         <ListItemIcon>
                           <HomeIcon />
                         </ListItemIcon>
@@ -256,7 +269,13 @@ const App = () => {
                       <List className={classes.dividerContainer}>
                         <Divider className={classes.divider} />
                       </List>
-                      <ListItem button key='Alerts' component={Link} to={"/alerts"}>
+                      <ListItem 
+                        button key='Alerts' 
+                        component={Link} 
+                        to={"/alerts"}
+                        selected={selectedIndex === 1}
+                        onClick={(event) => handleListItemClick(event, 1)}
+                      >
                         <ListItemIcon>
                           <Alert2Icon />
                         </ListItemIcon>
@@ -265,7 +284,14 @@ const App = () => {
                       <List className={classes.dividerContainer}>
                         <Divider className={classes.divider} />
                       </List>
-                      <ListItem button key='BlueprintsDevices' component={Link} to={"/blueprints-and-devices"}>
+                      <ListItem 
+                        button 
+                        key='BlueprintsDevices' 
+                        component={Link} 
+                        to={"/blueprints-and-devices"}
+                        selected={selectedIndex === 2}
+                        onClick={(event) => handleListItemClick(event, 2)}
+                      >
                         <ListItemIcon>
                           <BlueprintsDevicesIcon />
                         </ListItemIcon>
@@ -274,7 +300,15 @@ const App = () => {
                       <List className={classes.dividerContainer}>
                         <Divider className={classes.divider} />
                       </List>
-                      <ListItem button key='Settings' component={Link} to={"/settings"}>
+                      <ListItem 
+                        opacity={3}
+                        button 
+                        key='Settings' 
+                        component={Link} 
+                        to={"/settings"}
+                        selected={selectedIndex === 3}
+                        onClick={(event) => handleListItemClick(event, 3)}
+                      >
                         <ListItemIcon>
                           <SettingsIcon />
                         </ListItemIcon>
