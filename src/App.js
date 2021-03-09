@@ -264,7 +264,7 @@ const App = () => {
                     <DialogContent>
                     <Button variant="contained"
                     component="label" className={classes.uploadField}>
-                    Take Screenshot
+                    Upload Screenshot
                     <input type="file" onChange={handleChange} hidden/>
                     </Button>
                     <TextField className={classes.suggestionText} label="Write Suggestion here.."
