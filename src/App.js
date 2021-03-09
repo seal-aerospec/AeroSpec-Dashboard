@@ -141,6 +141,7 @@ const App = () => {
           duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
+        paddingLeft: '10vh'
       },
       contentShift: {
         transition: theme.transitions.create('margin', {
@@ -202,6 +203,9 @@ const App = () => {
         textTransform: 'none',
         borderStyle: 'solid',
         borderWidth: '1px',
+      },
+      pageMargin: {
+        marginLeft: '30vh'
       }
     }));
 

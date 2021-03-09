@@ -1,5 +1,4 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import "./alert.css";
 import bellIcon from "../assets/UI_component/alert 1.png";
 import exampleAlert from "../assets/uploaded_blueprints/alerts-floor-plan-icon.jpg";
