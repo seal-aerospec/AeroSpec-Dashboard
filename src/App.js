@@ -140,7 +140,7 @@ const App = () => {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
-        marginLeft: -drawerWidth,
+        //marginLeft: -drawerWidth,
         paddingLeft: '10vh'
       },
       contentShift: {
