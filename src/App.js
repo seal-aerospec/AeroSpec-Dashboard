@@ -11,6 +11,7 @@ import NotificationIcon from './Dashboard/assets/UI_component_svg/NotificationIc
 import SettingsIcon from './Dashboard/assets/UI_component_svg/SettingsIcon';
 import suggestionIcon from './Dashboard/assets/UI_component/suggestions.png';
 import Suggestion from './Dashboard/assets/Suggestion.js';
+import screenshotIcon from './Dashboard/assets/UI_component/screenshot.png'
 
 /* src/App.js */
 import React, { useState } from 'react'
@@ -37,6 +38,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import Modal from '@material-ui/core/Modal';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
@@ -45,7 +52,6 @@ const App = () => {
     const [menuCollapse, setMenuCollapse] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
     // getModalStyle is not a pure function, we roll the style only on the first render
-    const [modalStyle] = useState(getModalStyle);
     const drawerWidth = 280;
 
     const collapseClick = () => {
@@ -143,44 +149,69 @@ const App = () => {
         }),
         marginLeft: 0,
       },
-      paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-      },
       suggestionbutton: {
         color: '#6389bf',
         backgroundColor: '#e8eef6',
         marginLeft: 'auto',
         outline: 'none'
       },
+      suggestionBackDrop: {
+        background: 'rgba(0,0,0,0.2)'
+      },
+      suggestion: {
+        borderRadius: '2vh',
+        height: '70vh',
+        width: '70vh',
+        textAlign: 'center'
+      },
+      uploadField: {
+        borderRadius: '2vh',
+        height: '40%',
+        width: '50%',
+        backgroundColor: 'white',
+        borderStyle: 'dashed',
+        borderWidth: '2px',
+        borderColor: '#c7cdd4',
+        marginBottom: '3vh',
+        boxShadow: 'none'
+      },
+      suggestionText: {
+        height: '50%',
+      },
+      cancelButton: {
+        height: '7vh',
+        backgroundColor: "#FFFFFF",
+        padding: '12px 24px',
+        margin: theme.spacing(1),
+        borderRadius: '5em',
+        fontSize: '16px',
+        color: '#486EAB',
+        textTransform: 'none',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: '#486EAB',
+      },
+      saveButton: {
+        height: '7vh',
+        backgroundColor: "#486EAB",
+        padding: '12px 24px',
+        margin: theme.spacing(1),
+        borderRadius: '5em',
+        fontSize: '16px',
+        color: '#FFFFFF',
+        textTransform: 'none',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+      }
     }));
 
     const classes = useStyles();
 
-    const modalBody = (
-      <div style={modalStyle} className={classes.paper}>
-        <Suggestion />
-      </div>
-    );
-
-    function rand() {
-      return Math.round(Math.random() * 20) - 10;
-    }
-
-    function getModalStyle() {
-      const top = 50 + rand();
-      const left = 50 + rand();
-
-      return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-      };
-    }
+    const handleChange = (event) => {
+      this.setState({
+        file: URL.createObjectURL(event.target.files[0])
+      });
+    };
 
     return (
       <ThemeProvider theme={theme}>
@@ -188,7 +219,7 @@ const App = () => {
           <Grid container xs={12} direction="column">
             <Grid item container>
               <AppBar
-                elevation={3} 
+                elevation={3}
                 className={clsx(classes.appBar, {
                   [classes.appBarShift]: menuCollapse,
                 })}
@@ -196,9 +227,9 @@ const App = () => {
               <Toolbar>
                 <Grid item container>
                   <Grid item>
-                    <IconButton 
-                      edge="start" 
-                      color="relative" 
+                    <IconButton
+                      edge="start"
+                      color="relative"
                       aria-label="menu"
                       onClick={collapseClick}
                     >
@@ -212,7 +243,7 @@ const App = () => {
                     </IconButton>
                   </Grid>
                 </Grid>
-                <Button 
+                <Button
                     size="medium"
                     className={classes.suggestionbutton}
                     onClick={handleOpen}
@@ -220,14 +251,34 @@ const App = () => {
                     <img src={suggestionIcon} alt="suggestion icon"/>
                     &nbsp;Suggestions
                   </Button>
-                  <Modal
-                    open={modalOpen}
-                    onClose={handleClose}
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                  >
-                    {modalBody}
-                  </Modal>
+                  <Dialog PaperProps={{
+                    classes: {
+                      root: classes.suggestion
+                    }
+                  }} BackdropProps={{
+                    classes: {
+                      root: classes.suggestionBackDrop
+                    }
+                  }} open={modalOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Submit Suggestion</DialogTitle>
+                    <DialogContent>
+                    <Button variant="contained"
+                    component="label" className={classes.uploadField}>
+                    Take Screenshot
+                    <input type="file" onChange={handleChange} hidden/>
+                    </Button>
+                    <TextField className={classes.suggestionText} label="Write Suggestion here.."
+                    rows="5" type="search" variant="outlined" fullWidth multiline/>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} className={classes.cancelButton}>
+                        Cancel
+                      </Button>
+                      <Button onClick={handleClose} className={classes.saveButton}>
+                        Save
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
               </Toolbar>
             </AppBar>
             </Grid>
@@ -286,7 +337,7 @@ const App = () => {
                     </List>
                   </Drawer>
                 </Grid>
-                <Grid item xs={10} justify="center" 
+                <Grid item xs={10} justify="center"
                   className={clsx(classes.content, {
                     [classes.contentShift]: menuCollapse,
                   })}
