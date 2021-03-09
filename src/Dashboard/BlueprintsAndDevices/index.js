@@ -13,7 +13,13 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
+/* Asset Imports */
+import DeleteIcon from '../assets/UI_component/bin.png';
+import Typography from 'material-ui/styles/typography';
 
 const list = [];
 
@@ -84,16 +90,56 @@ const BlueprintsAndDevices = props => {
     reader.readAsDataURL(e.target.files[0]);
   }
 
+  const useStyles = makeStyles((theme) => ({
+    deviceTitle: {
+      display: 'inline-flex'
+    },
+    activeButton: {
+      height: 25,
+      backgroundColor: '#3e6eb0',
+      color: '#ffffff',
+      borderRadius: 20,
+    },
+    deleteIcon: {
+      width: 15
+    },
+    editBtn: {
+      backgroundColor: "#FFFFFF",
+      padding: '12px 24px',
+      margin: theme.spacing(1),
+      borderRadius: '10em',
+      fontSize: '16px',
+      color: '#486EAB',
+      textTransform: 'none',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderColor: '#486EAB',
+    },
+    saveBtn: {
+      backgroundColor: "#486EAB",
+      padding: '12px 24px',
+      margin: theme.spacing(1),
+      borderRadius: '10em',
+      fontSize: '16px',
+      color: '#FFFFFF',
+      textTransform: 'none',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+    }
+  }));
+
+  const classes = useStyles();
+
   return (
     <Box display="flex" flexDirection="row" style={{width: '100%'}}>
       <Box style={{margin: "5vh"}}>
         <Paper style={{padding: "5vh"}}>
           <Box display="flex" id="bp-edit-panel">
             {"Pick and place the sensor on its location"}
-            <Button variant="contained" color="primary">
+            <Button className={classes.editBtn}>
               Edit Blueprint
             </Button>
-            <Button variant="contained" color="primary">
+            <Button className={classes.saveBtn}>
               Save Changes
             </Button>
           </Box>
@@ -102,23 +148,45 @@ const BlueprintsAndDevices = props => {
           <input type="file" title="New Blueprint" id="imageLoader" name="imageLoader" onChange={handleImage}/>
         </Paper>
       </Box>
-      <Box>
-        <Paper variant="outlined" square style={{height:"100%", padding: ""}}>
-          <Box display="flex" flexDirection="row" justifyContent="space-between">
-            <div>My Device</div>
-            <Button>Add</Button>
+      <Box style={{margin: "5vh"}}>
+        <Paper variant="outlined" square style={{height:"100%", padding: 5}}>
+          <Box display="flex" flexDirection="row" justifyContent="space-between" style={{margin: "1vh"}}>
+            <h5>&nbsp;&nbsp;My Devices</h5>
+            <Button>Add +</Button>
           </Box>
           <Box>
               <Card style={{ width: '18rem', padding: '10px', margin: '10px'}}>
-                  <div>DEVICE NAME</div>
-                  <Box display="flex" flexDirection="row" justifyContent="space-between">
-                    <div> AeroSpec 9</div>
-                    <div>delete </div>
-                    <div>active</div>
-                  </Box>
-                  <div>Serial Number: {deviceState.SerialNumber}</div>
-                  <div>Battery: {deviceState.Battery}</div>
-                  <div>Wifi Strength: {deviceState.WifiStrength}</div>
+                <Grid container direction="column">
+                  <Grid item xs={12}>
+                    <h6>DEVICE NAME</h6>
+                  </Grid>
+                  <Grid item container className={classes.deviceTitle}>
+                    <Grid className="d-flex" item form="maincomponent" justifyContent="space-between" xs>
+                      <h4>Aerospec 9</h4>
+                    </Grid>
+                    <Grid item>
+                      <Button>
+                        <img src={DeleteIcon} alt="Delete Button" className={classes.deleteIcon} />
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button color="primary" className={classes.activeButton}>
+                        Active
+                      </Button>
+                    </Grid>
+                  </Grid>
+                  {/* <Box display="flex" flexDirection="row" justifyContent="space-between">
+                  </Box> */}
+                  <Grid item xs={12}>
+                    <div>Serial Number: {deviceState.SerialNumber}</div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div>Battery: {deviceState.Battery}</div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div>Wifi Strength: {deviceState.WifiStrength}</div>
+                  </Grid>
+                </Grid>
               </Card>
           </Box>
         </Paper>

@@ -13,7 +13,8 @@ import { Form, FormControl} from 'react-bootstrap';
 import logo from './assets/favicon.svg';
 import Slider from './assets/Slider.js';
 
-
+/* ./assets/UI_component */
+import navbarLogo from 'assets\UI_component\AeroSpec PNG-7.png';
 
 const initialState = { id: '', time: '', sensor: '', timestamp: ''}
 
@@ -37,7 +38,15 @@ const Dashboard = () => {
   return (
     <Container fluid>
       <Navbar bg="light">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">
+        <img
+          src="navbarLogo"
+          // width="30"
+          // height="30"
+          className="d-inline-block align-top"
+          alt="Aerospec Logo"
+        />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Form inline>
