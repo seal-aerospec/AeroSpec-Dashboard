@@ -28,8 +28,8 @@ const Dashboard = () => {
       const payload = JSON.parse(info.payload);
       const newData = {id: info.id, time: payload['time'], sensor: 'a'+payload['sensor_a0'], timestamp: info.timestamp};
       setFormState(newData);
-      console.log(newData);
-      console.log(payload);
+      console.log("newData",newData);
+      console.log("payload", payload);
     } catch (err) {
       console.log('error: ', err);
     }

@@ -17,14 +17,9 @@ export default function ParticleGasTemp () {
     try {
       const store = await API.graphql({ query: listFrontendteamschemas});
       const info = store.data.listFrontendteamschemas;
-      // console.log("type of info", typeof(info));
-      // const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
-      // const header = Object.keys(info.items[0])
-      // const csv = [
-      //   header.join(','), // header row first
-      //   ...info.items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
-      // ].join('\r\n')
+      console.log("info items", info.items);
       setDeviceData(info.items);
+      console.log("deviceData", deviceData);
     } catch (err) {
       console.log(err);
     }
