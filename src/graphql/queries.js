@@ -61,8 +61,6 @@ export const listFrontendteamschemas = /* GraphQL */ `
         Time
         total_VoC_ppb
         Wifi_Strength
-        createdAt
-        updatedAt
       }
       nextToken
     }

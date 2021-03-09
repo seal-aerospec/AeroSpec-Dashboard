@@ -21,6 +21,7 @@ export default function LineGraph(props) {
 
   // parse the data and draw the graph
   function parseData(data, dataCatergory) {
+    console.log("data", data);
     let dataToArr = Object.values(data);
     dataToArr.sort((a,b) => {
       if (parseInt(a["Time"]) > parseInt(b["Time"])) {
@@ -30,7 +31,7 @@ export default function LineGraph(props) {
       } else {
         return -1;
       }
-    })
+    });
     console.log("dataToArr", dataToArr);
     let fieldsToGet = [];
     // separate case for different field groups
