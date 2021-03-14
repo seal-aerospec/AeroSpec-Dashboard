@@ -29,6 +29,36 @@ The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cl
 
 ### AWS Amplify Backend
 
+[AWS Amplify](https://aws.amazon.com/amplify/) is used for the backend of the dashboard. With this tool, we can deploy and manage our web app, connect our frontend to our database, DynamoDB, and more.
+
+[GraphQL](https://graphql.org/) is used to make API requests to fetch and update data from DynamoDB. To fetch data, GraphQL requires a schema of what the request should fetch. The current schema (AeroSpec-Dashboard/amplify/backend/api/aerospecdashboard/schema.graphql) fetches device and air quality information. 
+
+ `type frontendteamschema @model {`\
+	&nbsp;&nbsp;`id: ID!`\
+  &nbsp;&nbsp;`Battery: String!`\
+  &nbsp;&nbsp;`Date: String!`\
+  &nbsp;&nbsp;`Env_PM_smaller_than_1_0: String!`\
+  &nbsp;&nbsp;`Env_PM_smaller_than_10: String!`\
+  &nbsp;&nbsp;`Env_PM_smaller_than_2_5: String!`\
+  &nbsp;&nbsp;`equiv_CO2_ppm: String!`\
+  &nbsp;&nbsp;`Latitude: String!`\
+  &nbsp;&nbsp;`Longitude: String!`\
+  &nbsp;&nbsp;`Particle_Count_0_3um: String!`\
+  &nbsp;&nbsp;`PC_0_5um: String!`\
+  &nbsp;&nbsp;`PC_1_0num: String!`\
+  &nbsp;&nbsp;`PC_10um: String!`\
+  &nbsp;&nbsp;`PC_2_5um: String!`\
+  &nbsp;&nbsp;`PC_5um: String!`\
+  &nbsp;&nbsp;`Relative_Humidity: String!`\
+  &nbsp;&nbsp;`Serial_Number: String!`\
+  &nbsp;&nbsp;`Temperature_c: String!`\
+  &nbsp;&nbsp;`Time: String!`\
+  &nbsp;&nbsp;`total_VoC_ppb: String!`\
+  &nbsp;&nbsp;`Wifi_Strength: String!`\
+`}`\
+
+In addition to a schema, queries need to be defined in order to fetch data for the dashboard. Current queries can be found [here](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/graphql/queries.js). Queries may specify device IDs to retrieve data from and list specific fields.
+
 # Dashboard Functionality
 
 The AeroSpec Dashboard allows users to monitor their devices and receive information about air quality. 
@@ -51,7 +81,7 @@ At harmful levels, the user should be notified with a large alert window that gi
 
 ### Blueprints & Devices
 
-In the Blueprints & Devices component, the user can edit their blueprint and add/delete devices. The "Edit Blueprint" button opens a popup window to allow the user to upload or drag their desired blueprint. A left sidebar shows the user's current devices. To place a device, the user must click on the correct location in the blueprint. The device should appear in the left sidebar and display relevant information about it. THe categories featured can be found in the [INSERT SECTION HERE] section of this document. To delete a device, the user must click the trash icon on the left sidebar.
+In the Blueprints & Devices component, the user can edit their blueprint and add/delete devices. The "Edit Blueprint" button opens a popup window to allow the user to upload or drag their desired blueprint. A left sidebar shows the user's current devices. To place a device, the user must click on the correct location in the blueprint. The device should appear in the left sidebar and display relevant information about it. The categories featured can be found in the [INSERT SECTION HERE] section of this document. To delete a device, the user must click the trash icon on the left sidebar.
 
 It is important to note that the user must manually add and delete the device into the AeroSpec Dashboard. If the user moves a device, the user must also re-configure the device's location in this component by deleting and re-adding it [Does the data for it get deleted as well?]. There is no location tracking in the sensors.
 
