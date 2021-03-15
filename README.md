@@ -27,11 +27,33 @@ The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cl
 
 ### React Frontend
 
+The [src](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src) folder contains all React components, assets, and files for the AeroSpec dashboard. Within this folder, different components of the dashboard are labeled by their folder name. 
+
+#### App.js
+
+The [App](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/App.js) component houses all other child components displayed on the dashboard. Components displayed include the topbar, the sidebar, and the main content of the page. React Router is used to switch between different pages/main contents.
+
+#### Home
+
+The [Home](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/Dashboard/Home/index.js) component displays the blueprint, current devices, and air quality information to the user. 
+
+#### Device Details
+
+#### Particle, Gas, and Temperature
+
+#### Alerts
+
+#### Blueprints and Devices
+
+#### Settings
+
+#### Assets
+
 ### AWS Amplify Backend
 
 [AWS Amplify](https://aws.amazon.com/amplify/) is used for the backend of the dashboard. With this tool, we can deploy and manage our web app, connect our frontend to our database, DynamoDB, and more.
 
-[GraphQL](https://graphql.org/) is used to make API requests to fetch and update data from DynamoDB. To fetch data, GraphQL requires a schema of what the request should fetch. The current schema (AeroSpec-Dashboard/amplify/backend/api/aerospecdashboard/schema.graphql) fetches device and air quality information. 
+[GraphQL](https://graphql.org/) is used to make API requests to fetch and update data from DynamoDB. To fetch data, GraphQL requires a schema of what the request should fetch. The [current schema](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/readme/amplify/backend/api/aerospecdashboard/schema.graphql) fetches device and air quality information. 
 
  `type frontendteamschema @model {`\
 	&nbsp;&nbsp;`id: ID!`\
@@ -55,9 +77,13 @@ The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cl
   &nbsp;&nbsp;`Time: String!`\
   &nbsp;&nbsp;`total_VoC_ppb: String!`\
   &nbsp;&nbsp;`Wifi_Strength: String!`\
-`}`\
+`}`
 
 In addition to a schema, queries need to be defined in order to fetch data for the dashboard. Current queries can be found [here](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/graphql/queries.js). Queries may specify device IDs to retrieve data from and list specific fields.
+
+To add, delete, or update a device in the database, mutations need to be defined. Current mutations can be found [here](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/readme/src/graphql/mutations.js).
+
+To get real-time updates from our backend on device information and air quality data, subscriptions need to be defined. Current subscriptions can be found [here](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/readme/src/graphql/subscriptions.js).
 
 # Dashboard Functionality
 
@@ -87,6 +113,6 @@ It is important to note that the user must manually add and delete the device in
 
 ### Settings
 
-In the Settings component, the user can...
+In the Settings component, the user can update their account such as payment, contact, and user information. Saved updates should be reflected in the database.
 
 # Cloud Environment
