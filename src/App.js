@@ -2,7 +2,8 @@ import './App.css';
 import {Route, BrowserRouter as Router, Switch, Link} from "react-router-dom"
 
 /* ./assets/UI_component */
-import navbarLogo from './Dashboard/assets/UI_component/AeroSpec PNG-7.png';
+import navbarLogo from './Dashboard/assets/UI_component/AeroSpec PNG-7@2x.png';
+import navbarLogo2 from './Dashboard/assets/UI_component/AeroSpec PNG@2x.png';
 import ActiveTabIcon from './Dashboard/assets/UI_component_svg/ActiveTabIcon';
 import Alert2Icon from './Dashboard/assets/UI_component_svg/Alert2Icon';
 import BlueprintsDevicesIcon from './Dashboard/assets/UI_component_svg/BlueprintsDevicesIcon';
@@ -45,8 +46,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import awsExports from "./aws-exports";
+import NotificationNetworkCheck from 'material-ui/svg-icons/notification/network-check';
 Amplify.configure(awsExports);
 
 const App = () => {
@@ -82,6 +85,8 @@ const App = () => {
       },
     });
 
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
+
     const useStyles = makeStyles((theme) => ({
       root: {
         display: 'flex',
@@ -96,8 +101,8 @@ const App = () => {
         position: 'relative',
       },
       appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        width: '84%',
+        marginLeft: '16%',
         transition: theme.transitions.create(['margin', 'width'], {
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
@@ -116,14 +121,18 @@ const App = () => {
         width: '85%',
       },
       drawer: {
-        //width: drawerWidth-10,
-        flexShrink: 0,
+        width: '15%',
+        flexShrink: 1,
+        [theme.breakpoints.down('sm')]: {
+          width: '5%'
+        },
       },
       drawerPaper: {
         backgroundColor: '#3E6EB0',
-        //width: drawerWidth-10,
+        width: '15%',
       },
       drawerHeader: {
+        height: '85px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -274,7 +283,7 @@ const App = () => {
                     <DialogContent>
                     <Button variant="contained"
                     component="label" className={classes.uploadField}>
-                    Upload Screenshot
+                      Upload Screenshot
                     <input type="file" onChange={handleChange} hidden/>
                     </Button>
                     <TextField className={classes.suggestionText} label="Write Suggestion here.."
@@ -305,7 +314,7 @@ const App = () => {
                     }}
                   >
                     <div className={classes.drawerHeader}>
-                      <img src={navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
+                      <img src={matches ? navbarLogo2 : navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
                     </div>
                     <Divider />
                     <List>
