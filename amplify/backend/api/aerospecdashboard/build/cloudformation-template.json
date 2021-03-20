@@ -120,7 +120,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1645484827
+                        1646042610
                     ]
                 }
             },
@@ -222,52 +222,6 @@
             },
             "DependsOn": [
                 "GraphQLSchema"
-            ]
-        },
-        "CustomResourcesjson": {
-            "Type": "AWS::CloudFormation::Stack",
-            "Properties": {
-                "Parameters": {
-                    "AppSyncApiId": {
-                        "Fn::GetAtt": [
-                            "GraphQLAPI",
-                            "ApiId"
-                        ]
-                    },
-                    "AppSyncApiName": {
-                        "Ref": "AppSyncApiName"
-                    },
-                    "env": {
-                        "Ref": "env"
-                    },
-                    "S3DeploymentBucket": {
-                        "Ref": "S3DeploymentBucket"
-                    },
-                    "S3DeploymentRootKey": {
-                        "Ref": "S3DeploymentRootKey"
-                    }
-                },
-                "TemplateURL": {
-                    "Fn::Join": [
-                        "/",
-                        [
-                            "https://s3.amazonaws.com",
-                            {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "stacks",
-                            "CustomResources.json"
-                        ]
-                    ]
-                }
-            },
-            "DependsOn": [
-                "GraphQLAPI",
-                "GraphQLSchema",
-                "frontendteamschema"
             ]
         }
     },

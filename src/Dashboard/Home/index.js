@@ -44,8 +44,9 @@ const Dashboard = () => {
       fontSize: '16px',
       color: '#707070',
       textTransform: 'none',
-      border: '1.5px solid',
-      borderColor: '#e8e8e8',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderColor: '#E4EBF2',
     },
   }));
 
@@ -80,10 +81,10 @@ const Dashboard = () => {
             <Tab label="Gas"/>
             <Tab label="Temperature" />
           </Tabs> */}
-          <Grid 
+          <Grid
               alignItems="center"
               justify="center"
-              container 
+              container
               item
               className={classes.blueprint}
             >
