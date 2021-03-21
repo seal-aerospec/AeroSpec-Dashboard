@@ -39,15 +39,31 @@ The [Home](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/Das
 
 #### Device Details
 
+The [Device Details](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src/Dashboard/Home/DeviceDetails) component displays graphs related to air quality information with the Particle, Gas, and Temperature component. See the Particle, Gas, and Temperature section for more details on how the data is displayed.
+
 #### Particle, Gas, and Temperature
+
+The [ParticleGasTemp](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src/Dashboard/Home/ParticleGasTemp) folder contains two React components: ParticleGasTemp and LineGraph. 
+
+ParticleGasTemp contains a function for fetching data with a GraphQL API request. This request is made with the useEffect hook. The data is stored in the variable deviceData and passed down as a prop to various LineGraph components.
+
+LineGraph utilizes the [Chart.js](https://www.chartjs.org/) library to create dynamic line graphs. The functional component takes in data about air quality and the data category this graph should present. Based on the category, the air quality data is parsed from props.data. Then, the graph must be configured on the data set, the x-axis representing time, and given colors. Lastly, a new Chart object is made with the configuration
 
 #### Alerts
 
+The [Alerts](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src/Dashboard/Alerts) component displays any alerts about air quality to the user.
+
 #### Blueprints and Devices
+
+The [Blueprints and Devices](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src/Dashboard/BlueprintsAndDevices) component allows the user to edit their blueprint, add/delete devices, and view device data. This component contains a function for fetching device information, such as battery percentage and wifi strength.
 
 #### Settings
 
+The [Settings](https://github.com/seal-aerospec/AeroSpec-Dashboard/tree/main/src/Dashboard/Settings) component allows the user to edit account and payment information.
+
 #### Assets
+
+The [Assets](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/Dashboard/assets) folder contains any UI components, such as images. Within Assets, the UI_component folder stores all UI component assets created by the UX team in PNG format. UI_component_svg stores the SVG formatted version of the assets found in UII_component. The SVG format is useful when creating icons in React. Other components include example blueprints and miscellaneous React components.
 
 ### AWS Amplify Backend
 
