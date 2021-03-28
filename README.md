@@ -111,7 +111,7 @@ The AeroSpec Dashboard allows users to monitor their devices and receive informa
 
 In the Home component, the user can view the blueprint and monitor the status of their device(s). The blueprint should feature dot(s) on it to represent that a device had been placed in that location. A dot can either appear blue or orange to indicate the sensor status. If the air quality crosses some threshold, the dot should be colored orange to indicate a warning. Otherwise, it should be colored blue to indicate stable air quality. 
 
-Above the blueprint, three tabs allow the user to monitor nano particles, gases, and temperatures for each device. After selecting a device by clicking on a dot, any of the three tabs can be clicked on to show a line graph of the air quality throughout the day. The categories featured for nano particles, gases, and temperatures can be found in the [INSERT SECTION HERE] section of this document.
+Above the blueprint, three tabs allow the user to monitor nano particles, gases, and temperatures for each device. After selecting a device by clicking on a dot, any of the three tabs can be clicked on to show a line graph of the air quality throughout the day. The categories featured for nano particles, gases, and temperatures can be found in the AWS Amplify Backend section of this document.
 
 Below the tabs and above the blueprint is a slider. This slider allows the user to view the sensor status throughout the day. 
 
@@ -123,7 +123,7 @@ At harmful levels, the user should be notified with a large alert window that gi
 
 ### Blueprints & Devices
 
-In the Blueprints & Devices component, the user can edit their blueprint and add/delete devices. The "Edit Blueprint" button opens a popup window to allow the user to upload or drag their desired blueprint. A left sidebar shows the user's current devices. To place a device, the user must click on the correct location in the blueprint. The device should appear in the left sidebar and display relevant information about it. The categories featured can be found in the [INSERT SECTION HERE] section of this document. To delete a device, the user must click the trash icon on the left sidebar.
+In the Blueprints & Devices component, the user can edit their blueprint and add/delete devices. The "Edit Blueprint" button opens a popup window to allow the user to upload or drag their desired blueprint. A left sidebar shows the user's current devices. To place a device, the user must click on the correct location in the blueprint. The device should appear in the left sidebar and display relevant information about it. The categories featured can be found in the AWS Amplify Backend section of this document. To delete a device, the user must click the trash icon on the left sidebar.
 
 It is important to note that the user must manually add and delete the device into the AeroSpec Dashboard. If the user moves a device, the user must also re-configure the device's location in this component by deleting and re-adding it [Does the data for it get deleted as well?]. There is no location tracking in the sensors.
 
