@@ -2,6 +2,8 @@
 
 This repository contains the code for the online dashboard for AeroSpec. This app was created with React JS and utilizes AWS Amplify and GraphQL to make API requests.
 
+[Deployed Version](https://main.d82284rw2hq6k.amplifyapp.com/home)
+
 # Getting Started
 
 ### Cloning the Repository
@@ -69,7 +71,7 @@ The [Assets](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/src/D
 
 [AWS Amplify](https://aws.amazon.com/amplify/) is used for the backend of the dashboard. With this tool, we can deploy and manage our web app, connect our frontend to our database, DynamoDB, and more.
 
-[GraphQL](https://graphql.org/) is used to make API requests to fetch and update data from DynamoDB. To fetch data, GraphQL requires a schema of what the request should fetch. The [current schema](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/readme/amplify/backend/api/aerospecdashboard/schema.graphql) fetches device and air quality information. 
+[GraphQL](https://graphql.org/) is used to make API requests to fetch and update data from DynamoDB. To fetch data, GraphQL requires a schema of what the request should fetch. The [current schema](https://github.com/seal-aerospec/AeroSpec-Dashboard/blob/main/amplify/backend/api/aerospecdashboard/schema.graphql) fetches device and air quality information. 
 
  `type frontendteamschema @model {`\
 	&nbsp;&nbsp;`id: ID!`\
@@ -105,7 +107,7 @@ To get real-time updates from our backend on device information and air quality 
 
 The AeroSpec Dashboard allows users to monitor their devices and receive information about air quality. 
 
-#### Current Figma Wireframe: Updated wireframes 2.0
+#### Current Figma Wireframe: [Updated wireframes 2.0](https://www.figma.com/file/RujMwMkt23v33BYChcnD0R/AeroSpec-Wireframes)
 
 ### Home
 
