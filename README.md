@@ -23,8 +23,6 @@ To run the app in development mode, run `npm start`. Open [http://localhost:3000
 
 The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cloud services for our app. Install the the command line interface [here](https://docs.amplify.aws/cli/start/install).
 
-[insert more info here]
-
 # File Structure
 
 ### React Frontend
