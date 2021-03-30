@@ -21,7 +21,7 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
+              "apiKeyExpirationDays": 365,
               "description": ""
             }
           },
@@ -31,7 +31,7 @@
         "GraphQLAPIEndpointOutput": "https://ozo2ejm6rjhlrm2qfbvb23475q.appsync-api.us-west-2.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-zg4qz5p5jzettgqb3j2gcry4te"
       },
-      "lastPushTimeStamp": "2021-03-30T18:27:12.653Z",
+      "lastPushTimeStamp": "2021-03-30T18:45:56.233Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify132afe4acd544-staging-53211-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiaerospecdashboardgqlapi"
