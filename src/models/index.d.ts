@@ -1,9 +1,5 @@
 import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
 
-
-
-
-
 export declare class frontendteamschema {
   readonly id: string;
   readonly Battery: string;
