@@ -97,71 +97,71 @@ function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleCha
 
   const classes = useStyles();
 
-    return (
-        <AppBar
-        elevation={1} 
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: menuCollapse,
-        })}
-      >
-        <Toolbar>
-          <Grid item container>
-            <Grid item>
-              <IconButton
-                edge="start"
-                color="relative"
-                aria-label="menu"
-                onClick={collapseClick}
-              >
-                <MenuIcon />
-              </IconButton>
-              <IconButton
-                edge="start"
-                href="/alerts"
-              >
-                <NotificationIcon />
-              </IconButton>
-            </Grid>
-          </Grid>
-          <Button
-              size="medium"
-              className={classes.suggestionbutton}
-              onClick={handleOpen}
+  return (
+      <AppBar
+      elevation={1} 
+      className={clsx(classes.appBar, {
+        [classes.appBarShift]: menuCollapse,
+      })}
+    >
+      <Toolbar>
+        <Grid item container>
+          <Grid item>
+            <IconButton
+              edge="start"
+              color="relative"
+              aria-label="menu"
+              onClick={collapseClick}
             >
-              <img src={suggestionIcon} alt="suggestion icon"/>
-              &nbsp;Suggestions
+              <MenuIcon />
+            </IconButton>
+            <IconButton
+              edge="start"
+              href="/alerts"
+            >
+              <NotificationIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+        <Button
+          size="medium"
+          className={classes.suggestionbutton}
+          onClick={handleOpen}
+        >
+          <img src={suggestionIcon} alt="suggestion icon"/>
+          &nbsp;Suggestions
+        </Button>
+        <Dialog PaperProps={{
+          classes: {
+            root: classes.suggestion
+          }
+        }} BackdropProps={{
+          classes: {
+            root: classes.suggestionBackDrop
+          }
+        }} open={modalOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Submit Suggestion</DialogTitle>
+          <DialogContent>
+          <Button variant="contained"
+          component="label" className={classes.uploadField}>
+            Upload Screenshot
+          <input type="file" onChange={handleChange} hidden/>
+          </Button>
+          <TextField className={classes.suggestionText} label="Write Suggestion here.."
+          rows="5" type="search" variant="outlined" fullWidth multiline/>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} className={classes.cancelButton}>
+              Cancel
             </Button>
-            <Dialog PaperProps={{
-              classes: {
-                root: classes.suggestion
-              }
-            }} BackdropProps={{
-              classes: {
-                root: classes.suggestionBackDrop
-              }
-            }} open={modalOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
-              <DialogTitle id="form-dialog-title">Submit Suggestion</DialogTitle>
-              <DialogContent>
-              <Button variant="contained"
-              component="label" className={classes.uploadField}>
-                Upload Screenshot
-              <input type="file" onChange={handleChange} hidden/>
-              </Button>
-              <TextField className={classes.suggestionText} label="Write Suggestion here.."
-              rows="5" type="search" variant="outlined" fullWidth multiline/>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} className={classes.cancelButton}>
-                  Cancel
-                </Button>
-                <Button onClick={handleClose} className={classes.saveButton}>
-                  Save
-                </Button>
-              </DialogActions>
-            </Dialog>
-        </Toolbar>
-      </AppBar>
-    )
+            <Button onClick={handleClose} className={classes.saveButton}>
+              Save
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Toolbar>
+    </AppBar>
+  )
 }
 
 export default Topbar;
