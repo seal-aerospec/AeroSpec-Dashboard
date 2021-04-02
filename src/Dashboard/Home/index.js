@@ -12,7 +12,7 @@ import DeviceDetails from './DeviceDetails'
 /* frontend-imports */
 // import logo from '../assets/favicon.svg';
 import Slider from '../assets/Slider.js';
-// import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';
 // import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -88,10 +88,10 @@ const Dashboard = () => {
               item
               className={classes.blueprint}
             >
-            <Slider />
-            <Grid item>
-              <img src={examplePic} alt="blueprint" />
-            </Grid>
+              <Slider />
+              <Grid item>
+                <img src={examplePic} alt="blueprint" />
+              </Grid>
           </Grid>
         </Grid>
       </Route>

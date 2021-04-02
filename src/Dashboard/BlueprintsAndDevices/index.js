@@ -132,7 +132,7 @@ const BlueprintsAndDevices = props => {
 
   return (
     <Box display="flex" flexDirection="row" style={{width: '100%'}}>
-      <Box style={{margin: "5vh"}}>
+      <Box style={{margin: "3vh"}}>
         <Paper style={{padding: "5vh"}}>
           <Box display="flex" id="bp-edit-panel">
             {"Pick and place the sensor on its location"}
@@ -148,7 +148,7 @@ const BlueprintsAndDevices = props => {
           <input type="file" title="New Blueprint" id="imageLoader" name="imageLoader" onChange={handleImage}/>
         </Paper>
       </Box>
-      <Box style={{margin: "5vh"}}>
+      <Box style={{margin: "3vh"}}>
         <Paper variant="outlined" square style={{height:"100%", padding: 5}}>
           <Box display="flex" flexDirection="row" justifyContent="space-between" style={{margin: "1vh"}}>
             <h5>&nbsp;&nbsp;My Devices</h5>
