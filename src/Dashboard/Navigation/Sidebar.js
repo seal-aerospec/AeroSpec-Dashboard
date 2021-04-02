@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // Material UI
 import Divider from '@material-ui/core/Divider';
@@ -13,10 +13,10 @@ import { makeStyles } from '@material-ui/core/styles';
 /* ./assets/UI_component */
 import Alert2Icon from '../assets/UI_component_svg/Alert2Icon';
 import navbarLogo from '../assets/UI_component/AeroSpec PNG-7@2x.png';
-import navbarLogo2 from '../assets/UI_component/AeroSpec PNG@2x.png';
 import BlueprintsDevicesIcon from '../assets/UI_component_svg/BlueprintsDevicesIcon';
 import HomeIcon from '../assets/UI_component_svg/HomeIcon';
 import SettingsIcon from '../assets/UI_component_svg/SettingsIcon';
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,13 +38,16 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: '15%',
     flexShrink: 1,
-    [theme.breakpoints.down('sm')]: {
-      width: '5%'
-    },
+    // [theme.breakpoints.down('md')]: {
+    //   width: '25%'
+    // },
   },
   drawerPaper: {
     backgroundColor: '#3E6EB0',
     width: '15%',
+    // [theme.breakpoints.down('md')]: {
+    //   width: '30%'
+    // },
   },
   drawerHeader: {
     height: '85px',
@@ -57,96 +60,110 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FFFFFF',
   },
   drawerHeaderImg: {
+    display: 'block',
     maxWidth: '70%',
     maxHeight: 'auto',
+    width: 'auto',
+    height: 'auto',
   },
   drawerText: {
     color: '#ffffff',
   },
 }));
 
-export default function Sidebar({menuCollapse, selectedIndex, handleListItemClick, matches}) {
+export default function Sidebar({menu, selectedIndex, openMenu, closeMenu, handleListItemClick, matches,
+  smallScreen, setSmallScreen}) {
   const classes = useStyles();
 
-    return (
-        <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={menuCollapse}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <img src={matches ? navbarLogo2 : navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
-        </div>
-        <Divider />
-        <List>
-          <ListItem 
-            button key='Home' 
-            component={Link} 
-            to={"/home"}
-            selected={selectedIndex === 0}
-            onClick={(event) => handleListItemClick(event, 0) }
-          >
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary='Home' className={classes.drawerText} />
-          </ListItem>
-          <List className={classes.dividerContainer}>
-            <Divider className={classes.divider} />
-          </List>
-          <ListItem 
-            button key='Alerts' 
-            component={Link} 
-            to={"/alerts"}
-            selected={selectedIndex === 1}
-            onClick={(event) => handleListItemClick(event, 1)}
-          >
-            <ListItemIcon>
-              <Alert2Icon />
-            </ListItemIcon>
-            <ListItemText primary='Alerts' className={classes.drawerText} />
-          </ListItem>
-          <List className={classes.dividerContainer}>
-            <Divider className={classes.divider} />
-          </List>
-          <ListItem 
-            button 
-            key='BlueprintsDevices' 
-            component={Link} 
-            to={"/blueprints-and-devices"}
-            selected={selectedIndex === 2}
-            onClick={(event) => handleListItemClick(event, 2)}
-          >
-            <ListItemIcon>
-              <BlueprintsDevicesIcon />
-            </ListItemIcon>
-            <ListItemText primary='Blueprints & Devices' className={classes.drawerText} />
-          </ListItem>
-          <List className={classes.dividerContainer}>
-            <Divider className={classes.divider} />
-          </List>
-          <ListItem 
-            opacity={3}
-            button 
-            key='Settings' 
-            component={Link} 
-            to={"/settings"}
-            selected={selectedIndex === 3}
-            onClick={(event) => handleListItemClick(event, 3)}
-          >
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary='Settings' className={classes.drawerText} />
-          </ListItem>
-        </List>
+  useEffect(() => {
+    // in < md screen size, allow for sidebar to be opened
+    if (matches && !smallScreen) {
+      closeMenu();
+      setSmallScreen(true);
+    } else if (!matches) {
+      setSmallScreen(false);
+    }
+  }, [matches, smallScreen, setSmallScreen, openMenu, closeMenu]);
+
+  return (
+      <Drawer
+      className={classes.drawer}
+      variant="persistent"
+      anchor="left"
+      open={menu}
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
+      <div className={classes.drawerHeader}>
+        <img src={navbarLogo} alt="AeroSpec Logo" className={classes.drawerHeaderImg} />
+      </div>
+      <Divider />
+      <List>
+        <ListItem 
+          button key='Home' 
+          component={Link} 
+          to={"/home"}
+          selected={selectedIndex === 0}
+          onClick={(event) => handleListItemClick(event, 0) }
+        >
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary='Home' className={classes.drawerText} />
+        </ListItem>
         <List className={classes.dividerContainer}>
           <Divider className={classes.divider} />
         </List>
-      </Drawer>
-    );
+        <ListItem 
+          button key='Alerts' 
+          component={Link} 
+          to={"/alerts"}
+          selected={selectedIndex === 1}
+          onClick={(event) => handleListItemClick(event, 1)}
+        >
+          <ListItemIcon>
+            <Alert2Icon />
+          </ListItemIcon>
+          <ListItemText primary='Alerts' className={classes.drawerText} />
+        </ListItem>
+        <List className={classes.dividerContainer}>
+          <Divider className={classes.divider} />
+        </List>
+        <ListItem 
+          button 
+          key='BlueprintsDevices' 
+          component={Link} 
+          to={"/blueprints-and-devices"}
+          selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)}
+        >
+          <ListItemIcon>
+            <BlueprintsDevicesIcon />
+          </ListItemIcon>
+          <ListItemText primary='Blueprints & Devices' className={classes.drawerText} />
+        </ListItem>
+        <List className={classes.dividerContainer}>
+          <Divider className={classes.divider} />
+        </List>
+        <ListItem 
+          opacity={3}
+          button 
+          key='Settings' 
+          component={Link} 
+          to={"/settings"}
+          selected={selectedIndex === 3}
+          onClick={(event) => handleListItemClick(event, 3)}
+        >
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary='Settings' className={classes.drawerText} />
+        </ListItem>
+      </List>
+      <List className={classes.dividerContainer}>
+        <Divider className={classes.divider} />
+      </List>
+    </Drawer>
+  );
 }

@@ -13,7 +13,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Suggestion from  '../assets/Suggestion';
 
-function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleChange, modalOpen}) {
+function Topbar({menu, handleOpen, handleClose, handleChange, openMenu, closeMenu, modalOpen,
+  smallScreen, setSmallScreen}) {
 
   const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -27,6 +28,10 @@ function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleCha
     appBarShift: {
       width: '84%',
       marginLeft: '16%',
+      // [theme.breakpoints.down('md')]: {
+      //   width: '70%',
+      //   marginLeft: '30%',
+      // },
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
@@ -40,7 +45,7 @@ function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleCha
       <AppBar
       elevation={1} 
       className={clsx(classes.appBar, {
-        [classes.appBarShift]: menuCollapse,
+        [classes.appBarShift]: menu,
       })}
     >
       <Toolbar>
@@ -50,7 +55,7 @@ function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleCha
               edge="start"
               color="relative"
               aria-label="menu"
-              onClick={collapseClick}
+              onClick={menu ? closeMenu : openMenu}
             >
               <MenuIcon />
             </IconButton>
@@ -68,6 +73,7 @@ function Topbar({menuCollapse, handleOpen, handleClose, collapseClick, handleCha
           handleChange={handleChange}
           modalOpen={modalOpen}
         />
+        
       </Toolbar>
     </AppBar>
   )
