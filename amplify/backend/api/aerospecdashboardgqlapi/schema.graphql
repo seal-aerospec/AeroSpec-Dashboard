@@ -1,5 +1,5 @@
 type frontendteamschema @model {
-	id: ID!
+  id: ID!
   Battery: String!
   Date: String!
   Env_PM_smaller_than_1_0: String!

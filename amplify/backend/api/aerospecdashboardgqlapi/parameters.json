@@ -1,5 +1,5 @@
 {
-  "AppSyncApiName": "aerospecdashboard",
+  "AppSyncApiName": "aerospecdashboardgqlapi",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false
 }

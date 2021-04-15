@@ -1,19 +1,19 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-aerospecdashboard-dev-180438-authRole",
-      "UnauthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::790784664340:role/amplify-aerospecdashboard-dev-180438-authRole",
+      "AuthRoleName": "amplify-amplify132afe4acd544-staging-53211-authRole",
+      "UnauthRoleArn": "arn:aws:iam::790784664340:role/amplify-amplify132afe4acd544-staging-53211-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::790784664340:role/amplify-amplify132afe4acd544-staging-53211-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-aerospecdashboard-dev-180438-deployment",
-      "UnauthRoleName": "amplify-aerospecdashboard-dev-180438-unauthRole",
-      "StackName": "amplify-aerospecdashboard-dev-180438",
-      "StackId": "arn:aws:cloudformation:us-west-2:790784664340:stack/amplify-aerospecdashboard-dev-180438/47164fa0-1727-11eb-b469-0276f619b229",
-      "AmplifyAppId": "d1yvtoba4ru0uj"
+      "DeploymentBucketName": "amplify-amplify132afe4acd544-staging-53211-deployment",
+      "UnauthRoleName": "amplify-amplify132afe4acd544-staging-53211-unauthRole",
+      "StackName": "amplify-amplify132afe4acd544-staging-53211",
+      "StackId": "arn:aws:cloudformation:us-west-2:790784664340:stack/amplify-amplify132afe4acd544-staging-53211/26520f70-7406-11eb-afca-069c3947cedb",
+      "AmplifyAppId": "d82284rw2hq6k"
     }
   },
   "api": {
-    "aerospecdashboard": {
+    "aerospecdashboardgqlapi": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -27,16 +27,16 @@
           },
           "additionalAuthenticationProviders": []
         },
-        "GraphQLAPIIdOutput": "nbur23x4hfevfbbkgnzkp33f5y",
-        "GraphQLAPIEndpointOutput": "https://tgb4hemi4rbxfaymuyfexgjvgm.appsync-api.us-west-2.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-yis2rgyt6fblhg2s6bjix3waiq"
+        "GraphQLAPIIdOutput": "33azsqcghbedlhemtc2apsn5rm",
+        "GraphQLAPIEndpointOutput": "https://ozo2ejm6rjhlrm2qfbvb23475q.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-zg4qz5p5jzettgqb3j2gcry4te"
       },
+      "lastPushTimeStamp": "2021-03-30T18:45:56.233Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-aerospecdashboard-dev-180438-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-        "logicalId": "apiaerospecdashboard"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify132afe4acd544-staging-53211-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiaerospecdashboardgqlapi"
       },
-      "lastPushTimeStamp": "2021-03-09T04:09:12.448Z",
-      "lastPushDirHash": "8jj9hSjgARTKqSWTQ5v2Pu97Jgo="
+      "lastPushDirHash": "9vCyVbDci34GSoeVx/mj2KUwRww="
     }
   }
 }

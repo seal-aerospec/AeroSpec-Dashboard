@@ -1,6 +1,6 @@
 {
   "api": {
-    "aerospecdashboard": {
+    "aerospecdashboardgqlapi": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {

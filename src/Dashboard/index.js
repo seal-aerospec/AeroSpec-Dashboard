@@ -22,6 +22,7 @@ const Dashboard = () => {
   const [formState, setFormState] = useState(initialState)
 
   async function displayDevice() {
+    console.log("fetch data");
     try {
       const store = await API.graphql({ query: getDeviceDataTest, variables: {id: '02f9bde0-197d-11eb-8848-d19ed1c9f7eb'} });
       const info = store.data.getDeviceDataTest;
